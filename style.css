@@ -15,6 +15,14 @@
 .navbar-nav li a{
   float: right;
   color: #fff!important;
+  font-size: 18px;
+}
+
+.navbar-nav li a:hover{
+  transition: transform 3s ease-in-out;
+  text-decoration: underline yellow;
+  font-size: 24px;
+  font-weight: bolder;
 }
 
 .navbar-brand img{
@@ -33,6 +41,10 @@ nav .fa-bars{
 }
 
 
+
+
+
+/* Welcome Text */
 
 .welcome{
   padding: 50px 100px;
@@ -57,7 +69,6 @@ nav .fa-bars{
 .welcome .btn:focus{
   box-shadow: none;
 }
-
 
 
 
