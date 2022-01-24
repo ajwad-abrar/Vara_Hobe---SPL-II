@@ -11,7 +11,7 @@
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="css/varatia_home_style.css">
 
-        <title>Varatia Home</title>
+        <title>Varatia Profile</title>
     </head>
     <body id="body-pd">
         <header class="header" id="header">
@@ -33,12 +33,12 @@
                     </a>
 
                     <div class="nav__list">
-                        <a href="varatia_home.php" class="nav__link active">
+                        <a href="varatia_home.php" class="nav__link">
                         <i class='bx bxs-home nav__icon' ></i>
                             <span class="nav__name">Home</span>
                         </a>
 
-                        <a href="varatia_profile.php" class="nav__link">
+                        <a href="varatia_profile.php" class="nav__link active">
                             <i class='bx bxs-user nav__icon' ></i>
                             <span class="nav__name">Profile</span>
                         </a>
@@ -80,6 +80,13 @@
        
 
         <h1 class="text-center">Welcome home,  AJWAAAAAD Varatia</h1>
+
+        <div class="card" style="width: 18rem;">
+            <img src="img/ajwad.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
         
         <!--=====  JS =====-->
         <script src="js/varatia_home_js.js"></script>
