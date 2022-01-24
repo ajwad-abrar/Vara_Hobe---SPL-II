@@ -8,10 +8,13 @@
         <!-- ===== BOX ICONS ===== -->
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="css/varatia_home_style.css">
 
-        <title>Varatia Home</title>
+        <title>Varatia Review</title>
     </head>
     <body id="body-pd">
         <header class="header" id="header">
@@ -33,7 +36,7 @@
                     </a>
 
                     <div class="nav__list">
-                        <a href="varatia_home.php" class="nav__link active">
+                        <a href="varatia_home.php" class="nav__link">
                         <i class='bx bxs-home nav__icon' ></i>
                             <span class="nav__name">Home</span>
                         </a>
@@ -48,7 +51,7 @@
                             <span class="nav__name">Search Home</span>
                         </a>
 
-                        <a href="varatia_review.php" class="nav__link">
+                        <a href="varatia_review.php" class="nav__link active">
                             <i class='bx bxs-star-half nav__icon' ></i>
                             <span class="nav__name">Review</span>
                         </a>
@@ -79,20 +82,7 @@
 
        
 
-
-
-    <div id="welcome">  
-        <h1 class="welcome_font"> 
-		   <?php
-				echo "Welcome Back, Varatia";	
-				echo "<br><br>Happy " . date("l");
-	 	    ?>  
-	    </h1>
-    </div>
-
-
-    
-        
+        <h1 class="text-center">Review </h1>
         
         <!--=====  JS =====-->
         <script src="js/varatia_home_js.js"></script>
