@@ -167,6 +167,7 @@ a{
 /*Active links*/
 .active{
   color: var(--white-color);
+  font-weight: 900;
 }
 
 .active::before{

@@ -83,13 +83,19 @@
     	<div class="row align-items-center h-100">
         	<div class="col-10 mx-auto">
             	<div class="card h-100 justify-content-center">
-               		<div style="padding: 5%;" class="text-center">
-					   <img src="img/ajwad.jpg" style="height: 250px; width: 220px;margin:0 auto; border-radius: 50%; padding-bottom: 20px" alt="">
-					   <h5 class="card-title text-center" style="color:dodgerblue; font-size: 28px; font-weight: 800; margin-bottom: -5px;">Student Profile <br> <br></h5>
-					   <h4 class="text-left">Ajwad Abrar</h4>
-					   <h4 class="text-left">Ajwad Abrar</h4>
-					   <h4 class="text-left">Ajwad Abrar</h4>
-					   <h4 class="text-left">Ajwad Abrar</h4>
+               		<div style=" padding: 5%;" class="text-center">
+					   <img src="img/pinku.jpg" style="height: 250px; width: 220px;margin:0 auto; border-radius: 50%; padding-bottom: 20px" alt="">
+					
+                       <h5 class="card-title text-center" style="color:dodgerblue; font-size: 28px; font-weight: 800; margin-bottom: -5px;">Varatia Profile <br> <br></h5>
+					   
+                       <div class="profile_text" style="padding-left: 20%;">
+                            <h4 class="text-start"> <b>Name: </b>Prianka Maheru</h4>
+                            <h4 class="text-start"> <b>Gender: </b>Female</h4>
+                            <h4 class="text-start"> <b>Mobile: </b>01984567679</h4>
+                            <h4 class="text-start"> <b>NID: </b>102043556298</h4>
+                       </div>
+                       
+
                 	</div>
             	</div>
         	</div>

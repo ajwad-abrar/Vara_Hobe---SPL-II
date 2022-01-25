@@ -159,6 +159,7 @@ a{
 /*Active links*/
 .active{
   color: var(--white-color);
+  font-weight: 900;
 }
 
 .active::before{
@@ -168,6 +169,13 @@ a{
   width: 2px;
   height: 32px;
   background-color: var(--white-color);
+}
+
+
+
+
+.container{
+  width: 60%;
 }
 
 
