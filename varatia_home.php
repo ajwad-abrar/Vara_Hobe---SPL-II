@@ -9,6 +9,7 @@
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
         <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="css/varatia_style.css">
         <link rel="stylesheet" href="css/varatia_home_style.css">
 
         <title>Varatia Home</title>
