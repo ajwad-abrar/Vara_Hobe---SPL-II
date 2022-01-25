@@ -9,7 +9,7 @@
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
         <!-- ===== CSS ===== -->
-        <link rel="stylesheet" href="css/varatia_home_style.css">
+        <link rel="stylesheet" href="css/varatia_profile_style.css">
 
         <title>Varatia Profile</title>
     </head>
@@ -79,14 +79,22 @@
 
        
 
-        <h1 class="text-center">Welcome home,  AJWAAAAAD Varatia</h1>
-
-        <div class="card" style="width: 18rem;">
-            <img src="img/ajwad.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
+        <div class="container h-100">
+    	<div class="row align-items-center h-100">
+        	<div class="col-10 mx-auto">
+            	<div class="card h-100 justify-content-center">
+               		<div style="padding: 5%;" class="text-center">
+					   <img src="img/ajwad.jpg" style="height: 250px; width: 220px;margin:0 auto; border-radius: 50%; padding-bottom: 20px" alt="">
+					   <h5 class="card-title text-center" style="color:dodgerblue; font-size: 28px; font-weight: 800; margin-bottom: -5px;">Student Profile <br> <br></h5>
+					   <h4 class="text-left">Ajwad Abrar</h4>
+					   <h4 class="text-left">Ajwad Abrar</h4>
+					   <h4 class="text-left">Ajwad Abrar</h4>
+					   <h4 class="text-left">Ajwad Abrar</h4>
+                	</div>
+            	</div>
+        	</div>
+    	</div> 
+	</div>
         
         <!--=====  JS =====-->
         <script src="js/varatia_home_js.js"></script>
