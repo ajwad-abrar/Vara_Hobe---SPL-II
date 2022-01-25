@@ -49,24 +49,23 @@
                             <span class="nav__name">Search Home</span>
                         </a>
 
+                        
+                        <a href="varatia_my_home.php" class="nav__link">
+                            <i class='bx bxs-home-heart nav__icon' ></i>
+                            <span class="nav__name">My Home</span>
+                        </a>
+
                         <a href="varatia_review.php" class="nav__link">
                             <i class='bx bxs-star-half nav__icon' ></i>
                             <span class="nav__name">Review</span>
                         </a>
 
-                        <!-- ei 2tar apatoto use nai -->
 
                         <!-- <a href="#" class="nav__link">
-                            <i class='bx bx-folder nav__icon' ></i>
-                            <span class="nav__name">Data</span>
-                        </a>
-
-                        <a href="#" class="nav__link">
                             <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
                             <span class="nav__name">Analytics</span>
-                        </a> -->
+                        </a>  -->
 
-                        <!-- ei 2tar apatoto use nai -->
 
                     </div>
                 </div>

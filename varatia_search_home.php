@@ -9,7 +9,7 @@
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
         <!-- ===== CSS ===== -->
-        <link rel="stylesheet" href="css/varatia_home_style.css">
+        <link rel="stylesheet" href="css/varatia_style.css">
 
         <script src="https://kit.fontawesome.com/22fda2a086.js" crossorigin="anonymous"></script>
 
@@ -50,24 +50,22 @@
                             <span class="nav__name">Search Home</span>
                         </a>
 
+                        <a href="varatia_my_home.php" class="nav__link">
+                            <i class='bx bxs-home-heart nav__icon' ></i>
+                            <span class="nav__name">My Home</span>
+                        </a>
+
                         <a href="varatia_review.php" class="nav__link">
                             <i class='bx bxs-star-half nav__icon' ></i>
                             <span class="nav__name">Review</span>
                         </a>
 
-                        <!-- ei 2tar apatoto use nai -->
+
 
                         <!-- <a href="#" class="nav__link">
-                            <i class='bx bx-folder nav__icon' ></i>
-                            <span class="nav__name">Data</span>
-                        </a>
-
-                        <a href="#" class="nav__link">
                             <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
                             <span class="nav__name">Analytics</span>
-                        </a> -->
-
-                        <!-- ei 2tar apatoto use nai -->
+                        </a>  -->
 
                     </div>
                 </div>
