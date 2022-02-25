@@ -77,24 +77,115 @@
             </nav>
         </div>
 
-       
-
-        <h1>Ajwad</h1>
 
 
+        <h1 class="text-center">Find your home</h1>
 
-        <div class="input-group">
-            <div class="form-outline">
-                <input type="search" id="form1" class="form-control" />
-                <label class="form-label" for="form1">Search</label>
-            </div>
-            <button type="button" class="btn btn-primary">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
+        <form name="search_form" id="form1" action="/action_page.php">
+            City: <select name="city" id="city">
+                <option value="" selected="selected">Select city</option>
+            </select>
+            <br><br>
+            Location: <select name="location" id="location">
+                <option value="" selected="selected">Please select city first</option>
+            </select>
+            <br><br>
+            Area: <select name="area" id="area">
+                <option value="" selected="selected">Please select location first</option>
+            </select>
+            <br><br>
+
+            <label for="bed">Bed:</label>
+            <select id="bed" name="bed">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <br> <br>
+
+            <label for="bath">Baths:</label>
+            <select id="bath" name="bath">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <br><br>
+
+            <label for="price">Price Range:</label>
+            <select id="bath" name="bath">
+                <option value="1">0 - 5000</option>
+                <option value="2">5001 - 10000</option>
+                <option value="3">10001 - 15000</option>
+                <option value="4">15001 - 20000</option>
+                <option value="5">20001 - 25000</option>
+            </select>
+
+            <br><br>
+            <input type="submit" value="Submit">  
+
+           
+
+        </form>
+
+
+
+
+
+        
+
+
 
 
         <!--=====  JS =====-->
-        <script src="js/varatia_home_js.js"></script>
+        <script src="js/varatia_js.js"></script>
+
+
+        <script>
+            var citytObject = {
+                "Dhaka": {
+                    "Gulshan": ["Gulshan-1", "Gulshan-2", "Gulshan-3"],
+                    "Banani": ["Banani-1", "Banani-2", "Banani-3", "Banani-4"],
+                    "Uttara": ["Sector-1", "Sector-2", "Sector-3", "Sector-4"]    
+                },
+                "Chattogram": {
+                    "Khulshi": ["South Khulshi", "North Khulshi"],
+                    "Patenga": ["South Patenga", "North Patenga"]
+                }
+            }
+
+            window.onload = function() {
+                var subjectSel = document.getElementById("city");
+                var topicSel = document.getElementById("location");
+                var chapterSel = document.getElementById("area");
+                for (var x in citytObject) {
+                    subjectSel.options[subjectSel.options.length] = new Option(x, x);
+                }
+                subjectSel.onchange = function() {
+                     //empty Chapters- and Topics- dropdowns
+                    chapterSel.length = 1;
+                    topicSel.length = 1;
+                    //display correct values
+                    for (var y in citytObject[this.value]) {
+                    topicSel.options[topicSel.options.length] = new Option(y, y);
+                    }
+                }
+                topicSel.onchange = function() {
+                    //empty Chapters dropdown
+                     chapterSel.length = 1;
+                    //display correct values
+                    var z = citytObject[subjectSel.value][this.value];
+                    for (var i = 0; i < z.length; i++) {
+                    chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+                    }
+                }
+            }
+        </script>
+
+
     </body>
 </html>

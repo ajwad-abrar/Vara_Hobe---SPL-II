@@ -10,6 +10,7 @@
 
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="css/varatia_style.css">
+        <link rel="stylesheet" href="css/varatia_my_home_style.css">
 
         <title>Varatia Home</title>
     </head>
@@ -80,20 +81,38 @@
 
 
 
-    <div id="welcome">  
-        <h1 class="welcome_font"> 
-		   <?php
-				echo "Welcome Back, Varatia";	
-				echo "<br><br>Happy " . date("l");
-	 	    ?>  
-	    </h1>
-    </div>
+        <div class="container h-100">
+    	    <div class="row align-items-center h-100">
+                <div class="col-10 mx-auto">
+                    <div class="card h-100 justify-content-center">
+                        <div style=" padding: 5%;" class="text-center">
+                        <img src="img/main_bg_img.jpg" style="height: 250px; width: 220px;margin:0 auto; border-radius: 50%; padding-bottom: 20px" alt="">
+                        
+                        <h5 class="card-title text-center" style="color:dodgerblue; font-size: 28px; font-weight: 800; margin-bottom: -5px;">Home Profile <br> <br></h5>
+                        
+                        <div class="profile_text" style="padding-left: 20%;">
+                                <h4 class="text-start"> <b>ID: </b>190042106</h4>
+                                <h4 class="text-start"> <b>City: </b>Dhaka</h4>
+                                <h4 class="text-start"> <b>Area: </b>Gulshan</h4>
+                                <h4 class="text-start"> <b>Size: </b>1200 sqft</h4>
+                                <h4 class="text-start"> <b>Floor Level: </b>10</h4>
+                                <h4 class="text-start"> <b>Bed: </b>4</h4>
+                                <h4 class="text-start"> <b>Bath: </b>2</h4>
+                                <h4 class="text-start"> <b>Rent: </b>12000/- BDT</h4>
+                        </div>
+                        
+
+                        </div>
+                    </div>
+        	    </div>
+    	    </div> 
+	    </div>
 
 
     
         
         
         <!--=====  JS =====-->
-        <script src="js/varatia_home_js.js"></script>
+        <script src="js/varatia_js.js"></script>
     </body>
 </html>

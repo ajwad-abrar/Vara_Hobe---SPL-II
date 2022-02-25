@@ -103,6 +103,6 @@
 	</div>
         
         <!--=====  JS =====-->
-        <script src="js/varatia_home_js.js"></script>
+        <script src="js/varatia_js.js"></script>
     </body>
 </html>
