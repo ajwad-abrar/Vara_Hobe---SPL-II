@@ -45,7 +45,7 @@
                         </a>
 
                         <a href="bariwala_add_flat.php" class="nav__link">
-                            <i class='bx bxs-search-alt-2 nav__icon' ></i>
+                            <i class='bx bxs-folder-plus nav__icon' ></i>
                             <span class="nav__name">Add Flat</span>
                         </a>
                         
