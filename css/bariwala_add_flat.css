@@ -12,13 +12,14 @@ body{
     color:orangered;
 }
 
-#part-2{
+#part-2, #part-3, #part-4, #part-5{
     margin-top: 100px;
 }
 
 
 #submit_button{
     margin-top: 50px;
+    margin-bottom: 50px;
     width: 15%;
     border: none;
     outline: none;
@@ -39,7 +40,17 @@ select{
     font-family: 'Poppins', sans-serif;
 }
 
-
-#price{
-    width: 417px;
+#additional_info{
+    margin-top: 70px;
+    color:orangered;
 }
+
+
+.additional-info-font{
+    font-size: 24px;
+    font-weight: 900;
+}
+
+/* #price {
+    width: 417px;
+} */

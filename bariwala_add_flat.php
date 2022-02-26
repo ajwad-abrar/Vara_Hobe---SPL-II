@@ -102,9 +102,10 @@
                             <option value="" selected="selected">Please select location first</option>
                         </select>
                     </div>
+                </div>
 
 
-                    <div class="w-100" id="part-2"></div> 
+                <div class="row" id="part-2">
                     <div class="col">
                         <h4 class="text-center">Beds</h4>
                         <select class="form-select form-select-md mb-3"  id="bed" name="bed">
@@ -128,10 +129,78 @@
                         <h4 class="text-center">Price</h4>
                         <input class="form-control" type="number" id="price" name="price" min="1" max="25000">
                     </div>
-
                 </div>
 
+                <div class="row" id="part-3">
+                    <div class="col">
+                        <h4 class="text-center">Size(sqft)</h4>
+                        <input class="form-control" type="number" id="size" name="size" min="100" max="4000">
+                    </div>
+                    <div class="col">
+                        <h4 class="text-center">Direction facing</h4>
+                        <select class="form-select form-select-md mb-3"  id="bath" name="bath">
+                            <option value="east">East</option>
+                            <option value="west">West</option>
+                            <option value="north">North</option>
+                            <option value="south">South</option>
+                        </select>   
+                    </div>
+                    <div class="col">
+                        <h4 class="text-center">Floor</h4>
+                        <select class="form-select form-select-md mb-3"  id="floor" name="floor">
+                            <option value="1">1st</option>
+                            <option value="2">2nd</option>
+                            <option value="3">3rd</option>
+                            <option value="4">4th</option>
+                            <option value="4">5th</option>
+                            <option value="4">6th</option>
+                            <option value="4">7th</option>
+                            <option value="4">8th</option>
+                            <option value="4">9th</option>
+                            <option value="4">10th</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <h1 class="text-center" id="additional_info"> Additional Info: </h1>
+
+                <div class="row additional-info-font" id="part-4">
+                    <div class="col">
+                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                        <label class="form-check-label" for="check2">Parking</label>  
+                    </div>
+                    <div class="col">
+                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                        <label class="form-check-label" for="check2">Gas connection</label>  
+                    </div>
+                    <div class="col">
+                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                        <label class="form-check-label" for="check2">Generator</label>  
+                    </div>
+                </div>
+
+
+                <div class="row additional-info-font" id="part-5">
+                    <div class="col">
+                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                        <label class="form-check-label" for="check2">Lift</label>  
+                    </div>
+                    <div class="col">
+                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                        <label class="form-check-label" for="check2">CCTV</label>  
+                    </div>
+                    <div class="col">
+                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                        <label class="form-check-label" for="check2">Fire Protection</label>  
+                    </div>
+                </div>
+
+
             </div>
+
+
+
 
 
             <div class="text-center mt-5">
