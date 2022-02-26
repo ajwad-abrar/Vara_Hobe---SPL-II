@@ -80,7 +80,9 @@
 
 
 
-        <div id="search_flat"><h1 class="text-center">Find your desired flat </h1></div>
+        <div id="search_flat">
+            <h1 class="text-center">Find your desired flat </h1>
+        </div>
 
 
         <form action="" method="post">
@@ -164,7 +166,7 @@
 
         <!--=====  JS =====-->
         <script src="js/varatia_js.js"></script>
-        <script src="js/varatia_search_home.js"></script>
+        <script src="js/city-list.js"></script>
 
 
     </body>
