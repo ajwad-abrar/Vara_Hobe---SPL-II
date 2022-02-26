@@ -1,0 +1,36 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+     background: #fafafa;
+     align-content: center;
+}
+
+
+#search_flat{
+    margin-bottom: 70px;
+    color:orangered;
+}
+
+#part-2{
+    margin-top: 100px;
+}
+
+
+#submit_button{
+    margin-top: 50px;
+    width: 15%;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    color: white;
+    transition: 0.5s;
+  
+}
+
+
+select{
+    width: 250px;
+    text-align: center;
+}
