@@ -2,7 +2,6 @@
 
 
 body{
-    font-family: 'Poppins', sans-serif;
      background: #fafafa;
      align-content: center;
 }
@@ -31,6 +30,7 @@ body{
 
 
 select{
+    font-family: 'Poppins', sans-serif;
     width: 250px;
     text-align: center;
 }
