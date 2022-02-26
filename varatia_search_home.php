@@ -164,48 +164,7 @@
 
         <!--=====  JS =====-->
         <script src="js/varatia_js.js"></script>
-
-
-        <script>
-            var citytObject = {
-                "Dhaka": {
-                    "Gulshan": ["Gulshan-1", "Gulshan-2", "Gulshan-3"],
-                    "Banani": ["Banani-1", "Banani-2", "Banani-3", "Banani-4"],
-                    "Uttara": ["Sector-1", "Sector-2", "Sector-3", "Sector-4"]    
-                },
-                "Chattogram": {
-                    "Khulshi": ["South Khulshi", "North Khulshi"],
-                    "Patenga": ["South Patenga", "North Patenga"]
-                }
-            }
-
-            window.onload = function() {
-                var subjectSel = document.getElementById("city");
-                var topicSel = document.getElementById("location");
-                var chapterSel = document.getElementById("sector");
-                for (var x in citytObject) {
-                    subjectSel.options[subjectSel.options.length] = new Option(x, x);
-                }
-                subjectSel.onchange = function() {
-                     //empty Chapters- and Topics- dropdowns
-                    chapterSel.length = 1;
-                    topicSel.length = 1;
-                    //display correct values
-                    for (var y in citytObject[this.value]) {
-                    topicSel.options[topicSel.options.length] = new Option(y, y);
-                    }
-                }
-                topicSel.onchange = function() {
-                    //empty Chapters dropdown
-                     chapterSel.length = 1;
-                    //display correct values
-                    var z = citytObject[subjectSel.value][this.value];
-                    for (var i = 0; i < z.length; i++) {
-                    chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
-                    }
-                }
-            }
-        </script>
+        <script src="js/varatia_search_home.js"></script>
 
 
     </body>

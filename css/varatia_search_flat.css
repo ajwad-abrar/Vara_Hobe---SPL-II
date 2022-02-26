@@ -30,7 +30,11 @@ body{
 
 
 select{
-    font-family: 'Poppins', sans-serif;
+    color: white;
     width: 250px;
     text-align: center;
+}
+
+.col h4{
+    font-family: 'Poppins', sans-serif;
 }
