@@ -126,17 +126,17 @@
         <div class="col-md-4">
           <img src="img/budget.png" class="wow fadeInRight delay-1s" alt="">
           <h4 class="wow fadeInRight delay-2s">Affordable</h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit consectetur recusandae fugiat temporibus laudantium nesciunt officiis illo qui nobis deleniti!</p>
+          <p>Vara hobe finds you the most affordable home you can find. Here, you will have your desired home in an affordable price.</p>
         </div>
         <div class="col-md-4">
           <img src="img/secure.png" class="wow fadeInRight delay-1s" alt="">
           <h4 class="wow fadeInRight delay-2s">Secured</h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit consectetur recusandae fugiat temporibus laudantium nesciunt officiis illo qui nobis deleniti!</p>
+          <p>Vara hobe finds you the most secured home you can find. Here, you will have your desired home which is secured.</p>
         </div>
         <div class="col-md-4">
           <img src="img/hassle-free.png" class="wow fadeInRight delay-1s" alt="">
           <h4 class="wow fadeInRight delay-2s">Hassle-free </h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit consectetur recusandae fugiat temporibus laudantium nesciunt officiis illo qui nobis deleniti!</p>
+          <p>Vara hobe finds you a hassle-free home where you can stay. Here, you will have your hassle-free home.</p>
         </div>
       </div>
     </div>
@@ -162,7 +162,7 @@
             </div>
             <div class="feature-right">
               <h4>No service charge</h4>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.  At eligendi veniam laborum debitis.</p>
+              <p>No service charge is required for getting the service from Vara Hobe.</p>
             </div>
           </div>
         
@@ -172,7 +172,7 @@
             </div>
             <div class="feature-right">
               <h4>Reliable</h4>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At eligendi veniam laborum debitis.</p>
+              <p>Vara Hobe is a reliable platform for finding the perfect home for you.</p>
             </div>
           </div>
 
@@ -182,7 +182,7 @@
             </div>
             <div class="feature-right">
               <h4>Simple</h4>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At eligendi veniam laborum debitis.</p>
+              <p>It is very simple to browse & find your desired home from this application.</p>
             </div>
           </div>
         </div>
@@ -280,9 +280,7 @@
 
         <div class="col-md-3">
           <img src="img/logo_black.png" class="footer-logo" alt="">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto
-             harum veniam error voluptas quasi recusandae quod debitis corporis vitae delectus!
-          </p>    
+          <p class="text-justify">Vara Hobe, an excellent platform for finding your desired home! Come, join the website to know more about us.</p>    
         </div>
 
         <div class="col-md-3">
