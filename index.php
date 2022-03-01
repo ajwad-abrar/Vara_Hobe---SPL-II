@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,9 +71,9 @@
         <div class="dropdown">
           <button class="register-button">Login Now</button>
           <div class="dropdown-content">
-            <a href="varatia_auth.html" target="_blank">Varatia</a>
-            <a href="bariwala_auth.html" target="_blank">Bariwala</a>
-            <a href="admin_auth.html" target="_blank">Admin</a>
+            <a href="varatia_auth.php" target="_blank">Varatia</a>
+            <a href="bariwala_auth.php" target="_blank">Bariwala</a>
+            <a href="admin_auth.php" target="_blank">Admin</a>
           </div>
         </div>
 
