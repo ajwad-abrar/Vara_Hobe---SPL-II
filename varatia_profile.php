@@ -25,7 +25,7 @@ session_start();
             </div>
 
             <div class="header__img">
-                <img src="img/demo.jpg" alt="">
+                <img src="img/varatia_profile_pic.png" alt="">
             </div>
         </header>
 
@@ -88,7 +88,7 @@ session_start();
         	<div class="col-10 mx-auto">
             	<div class="card h-100 justify-content-center">
                		<div style=" padding: 5%;" class="text-center">
-					   <img src="img/pinku.jpg" style="height: 250px; width: 220px;margin:0 auto; border-radius: 50%; padding-bottom: 20px" alt="">
+					   <img src="img/varatia_profile_pic.png" style="height: 250px; width: 220px;margin:0 auto; border-radius: 50%; padding-bottom: 20px" alt="">
 					
                        <h5 class="card-title text-center" style="color:dodgerblue; font-size: 28px; font-weight: 800; margin-bottom: -5px;">Varatia Profile <br> <br></h5>
 					   
