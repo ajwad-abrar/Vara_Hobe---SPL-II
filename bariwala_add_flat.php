@@ -1,3 +1,33 @@
+<?php
+session_start();
+
+
+
+if(isset($_POST['submit'])){
+
+    $hall_name=mysqli_real_escape_string($con,$_POST['hall_name']);
+    $floor_number=mysqli_real_escape_string($con, $_POST['floor_number']);
+    $room_number=mysqli_real_escape_string($con, $_POST['room_number']);
+    
+  
+  
+          $sql="INSERT INTO `room_request` (`request_ID`, `request_time`, `email`, `hall_name`, `level`, `room_no`, `provost_approval`, `provost_approval_time`)
+          VALUES (NULL, current_timestamp(), '$email', '$hall_name', '$floor_number', '$room_number', '', NULL);";
+  
+  
+            if(mysqli_query($con, $sql)){
+              
+              header('Location: student_room_request.php');
+            }
+            else{
+              echo'query error'.mysqli_error($con);
+            }
+          
+  }
+       
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
