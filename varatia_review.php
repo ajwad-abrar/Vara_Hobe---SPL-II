@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -71,7 +75,7 @@
                     </div>
                 </div>
 
-                <a href="#" class="nav__link">
+                <a href="varatia_logout.php" class="nav__link">
                     <i class='bx bx-log-out nav__icon' ></i>
                     <span class="nav__name">Log Out</span>
                 </a>
