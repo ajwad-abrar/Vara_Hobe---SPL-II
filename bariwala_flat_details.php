@@ -11,6 +11,7 @@
 
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="css/bariwala_style.css">
+        <link rel="stylesheet" href="css/bariwala_flat_details.css">
 
         <title>Bariwala Flat Info</title>
     </head>
@@ -65,61 +66,77 @@
             </nav>
         </div>
 
-       <div class="row">
-           <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="img/home.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Uttara sector-2 flat</h5>
-                        <p class="card-text"> BDT 180000 / MONTH </p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">2700 SQFT</li>
-                        <li class="list-group-item">3 ROOM</li>
-                        <li class="list-group-item">4 BATHROOM</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="bariwala_flat_details.php" class="card-link">Flat Details</a>
-                    </div>
-                </div>
-            </div>
-           <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="img/home.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Banani flat</h5>
-                        <p class="card-text"> BDT 180000 / MONTH </p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">2700 SQFT</li>
-                        <li class="list-group-item">3 ROOM</li>
-                        <li class="list-group-item">4 BATHROOM</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="bariwala_flat_details.php" class="card-link">Flat Details</a>
-                    </div>
-                </div>
-            </div>
-           <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="img/home.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Gulshan-2 flat</h5>
-                        <p class="card-text"> BDT 180000 / MONTH </p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">2700 SQFT</li>
-                        <li class="list-group-item">3 ROOM</li>
-                        <li class="list-group-item">4 BATHROOM</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="bariwala_flat_details.php" class="card-link">Flat Details</a>
-                    </div>
-                </div>
-            </div>
+      
+        <h1 class="text-center">Flat Details</h1>  
+
+        <img class="center" src="img/home.jpg" alt="" width="500px" height="350px">
+
+        <div class="container mt-3">
+            <h2 class="text-center">Here are the details of the flat</h2>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Price</th>
+                    <th>24000/- BDT</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>City</td>
+                    <td>Dhaka</td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>Uttara</td>
+                </tr>
+                <tr>
+                    <td>Sector</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Beds</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Baths</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Direction Facing</td>
+                    <td>South</td>
+                </tr>
+                <tr>
+                    <td>Floor</td>
+                    <td>10th</td>
+                </tr>
+                <tr>
+                    <td>Parking</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Gas Connection</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Generator</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Lift</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>CCTV</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Fire Protection</td>
+                    <td>No</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
 
-        
         
         <!--=====  JS =====-->
         <script src="js/bariwala_js.js"></script>

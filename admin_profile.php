@@ -9,10 +9,10 @@
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
         <!-- ===== CSS ===== -->
-        <link rel="stylesheet" href="css/bariwala_style.css">
-        <link rel="stylesheet" href="css/bariwala_profile_style.css">
+        <link rel="stylesheet" href="css/admin_style.css">
+        <link rel="stylesheet" href="css/admin_profile_style.css">
 
-        <title>Bariwala Profile</title>
+        <title>Admin Profile</title>
     </head>
     <body id="body-pd">
         <header class="header" id="header">
@@ -21,7 +21,7 @@
             </div>
 
             <div class="header__img">
-                <img src="img/bariwala_profile_pic.png" alt="">
+                <img src="img/admin_profile_pic.jfif" alt="">
             </div>
         </header>
 
@@ -34,7 +34,7 @@
                     </a>
 
                     <div class="nav__list">
-                        <a href="bariwala_home.php" class="nav__link">
+                        <a href="admin_home.php" class="nav__link">
                         <i class='bx bxs-home nav__icon' ></i>
                             <span class="nav__name">Home</span>
                         </a>
@@ -44,15 +44,6 @@
                             <span class="nav__name">Profile</span>
                         </a>
 
-                        <a href="bariwala_add_flat.php" class="nav__link">
-                            <i class='bx bxs-folder-plus nav__icon' ></i>
-                            <span class="nav__name">Add Flat</span>
-                        </a>
-                        
-                        <a href="bariwala_flat_info.php" class="nav__link">
-                            <i class='bx bxs-home-heart nav__icon' ></i>
-                            <span class="nav__name">My Flat</span>
-                        </a>
 
                     </div>
                 </div>
@@ -71,12 +62,12 @@
         	<div class="col-10 mx-auto">
             	<div class="card h-100 justify-content-center">
                		<div style=" padding: 5%;" class="text-center">
-					   <img src="img/bariwala_profile_pic.png" style="height: 250px; width: 220px;margin:0 auto; border-radius: 50%; padding-bottom: 20px" alt="">
+					   <img src="img/admin_profile_pic.jfif" style="height: 250px; width: 220px;margin:0 auto; border-radius: 50%; padding-bottom: 20px" alt="">
 					
-                       <h5 class="card-title text-center" style="color:dodgerblue; font-size: 28px; font-weight: 800; margin-bottom: -5px;">Bariwala Profile <br> <br></h5>
+                       <h5 class="card-title text-center" style="color:dodgerblue; font-size: 28px; font-weight: 800; margin-bottom: -5px;">Admin Profile <br> <br></h5>
 					   
                        <div class="profile_text" style="padding-left: 20%;">
-                            <h4 class="text-start"> <b>Name: </b>Prianka Maheru</h4>
+                            <h4 class="text-start"> <b>Name: </b>Admin</h4>
                             <h4 class="text-start"> <b>Gender: </b>Female</h4>
                             <h4 class="text-start"> <b>Mobile: </b>01984567679</h4>
                             <h4 class="text-start"> <b>NID: </b>102043556298</h4>
@@ -90,6 +81,6 @@
 	</div>
         
         <!--=====  JS =====-->
-        <script src="js/bariwala_js.js"></script>
+        <script src="js/admin_js.js"></script>
     </body>
 </html>
