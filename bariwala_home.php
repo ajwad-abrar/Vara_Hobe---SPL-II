@@ -73,14 +73,43 @@ session_start();
 
 
 
-    <div id="welcome">  
-        <h1 class="welcome_font"> 
-		   <?php
-				echo "Welcome Back, Bariwala";	
-				echo "<br><br>Happy " . date("l");
-	 	    ?>  
-	    </h1>
-    </div>
+        <?php
+
+            function showName(){
+
+                $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+                $email = $_SESSION['email'];
+
+                $reg=" select name from bariwala where email= '$email'";
+
+
+                $result = mysqli_query($con, $reg);
+
+                // echo "<br>";
+
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "{$row['name']}";
+                }
+            }
+        ?>    
+
+
+
+        <div id="welcome">  
+            <h1 class="welcome_font"> 
+                <?php
+
+                    echo "Welcome Back, ";
+
+                    showName();
+
+                    echo "<br><br><br>Happy " . date("l");
+
+                ?>  
+            </h1>
+        </div>
 
 
     
