@@ -1,23 +1,55 @@
 <?php
 session_start();
 
+$con =mysqli_connect('localhost', 'root','190042106');
+
+mysqli_select_db($con, 'vara_hobe');
+$email=$_SESSION['email'];
 
 
 if(isset($_POST['submit'])){
 
-    $hall_name=mysqli_real_escape_string($con,$_POST['hall_name']);
-    $floor_number=mysqli_real_escape_string($con, $_POST['floor_number']);
-    $room_number=mysqli_real_escape_string($con, $_POST['room_number']);
+    $city=mysqli_real_escape_string($con,$_POST['city']);
+    $location=mysqli_real_escape_string($con, $_POST['location']);
+    $block=mysqli_real_escape_string($con, $_POST['block']);
+    $address=mysqli_real_escape_string($con,$_POST['address']);
+    $building_no =mysqli_real_escape_string($con, $_POST['building']);
+    $floor =mysqli_real_escape_string($con, $_POST['floor']);
+    $apartment_no=mysqli_real_escape_string($con, $_POST['apartment']);
+    $bed=mysqli_real_escape_string($con,$_POST['bed']);
+    $bath =mysqli_real_escape_string($con, $_POST['bath']);
+    $price =mysqli_real_escape_string($con, $_POST['price']);
+    $size=mysqli_real_escape_string($con, $_POST['size']);
+    $advance_payment=mysqli_real_escape_string($con,$_POST['advance']);
+    // $parking =mysqli_real_escape_string($con, $_POST['parking']);
+    // $gas =mysqli_real_escape_string($con, $_POST['gas']);
+    // $generator =mysqli_real_escape_string($con, $_POST['generator']);
+    // $lift =mysqli_real_escape_string($con, $_POST['lift']);
+    // $cctv =mysqli_real_escape_string($con, $_POST['cctv']);
+    // $fire_protection =mysqli_real_escape_string($con, $_POST['fire']);
+
+    $additional_facilities=$_POST['add'];
+    $chk ="";
+
+     foreach( $additional_facilities as $chk1){
+         $chk .= $chk1." ";
+     }
+
+
     
   
   
-          $sql="INSERT INTO `room_request` (`request_ID`, `request_time`, `email`, `hall_name`, `level`, `room_no`, `provost_approval`, `provost_approval_time`)
-          VALUES (NULL, current_timestamp(), '$email', '$hall_name', '$floor_number', '$room_number', '', NULL);";
+        //   $sql="INSERT INTO `flats` (`id`, `city`, `location`, `block`, `address`, `building_no`, `floor`, `apartment_no`,`bedroom`,`bathroom`,`price`,`size`,`advance_payment`,`parking`,`gas`,`generator`,`lift`,`cctv`,`fire_protection`)
+        //   VALUES (NULL, '$city','$location', '$block', '$address', '$building_no', '$floor', '$apartment_no','$bed','$bath','$price','$size','$advance_payment','yes','yes','yes','yes','yes','yes');";
   
+        $sql="INSERT INTO `flats` (`id`, `city`, `location`, `block`, `address`, `building_no`, `floor`, `apartment_no`,`bedroom`,`bathroom`,`price`,`size`,`advance_payment`,`additional_facilities`)
+        VALUES (NULL, '$city','$location', '$block', '$address', '$building_no', '$floor', '$apartment_no','$bed','$bath','$price','$size','$advance_payment','$chk');";
+
+
   
             if(mysqli_query($con, $sql)){
               
-              header('Location: student_room_request.php');
+              header('Location: bariwala_add_flat.php');
             }
             else{
               echo'query error'.mysqli_error($con);
@@ -102,7 +134,7 @@ if(isset($_POST['submit'])){
         </div>
 
 
-        <form action="" method="post">
+        <form action="bariwala_add_flat.php" method="post">
 
             <div class="container text-center">
 
@@ -127,7 +159,7 @@ if(isset($_POST['submit'])){
 
                     <div class="col">
                         <h4 class="text-center">Sector/ Block</h4>
-                        <select class="form-select form-select-md mb-3"  name="sector" id="sector">
+                        <select class="form-select form-select-md mb-3"  name="block" id="sector">
                             <option value="" selected="selected">Please select location first</option>
                         </select>
                     </div>
@@ -227,19 +259,19 @@ if(isset($_POST['submit'])){
                 </div>
 
 
-                <h1 class="text-center" id="additional_info"> Additional Facilities: </h1>
+                <h1 class="text-center" id="additional_info" > Additional Facilities: </h1>
 
                 <div class="row additional-info-font" id="part-4">
                     <div class="col">
-                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                        <input type="checkbox" class="form-check-input" id="check2" name="add[]" value="Parking">
                         <label class="form-check-label" for="check2">Parking</label>  
                     </div>
                     <div class="col">
-                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                        <input type="checkbox" class="form-check-input" id="check2" name="add[]" value="Gas connection">
                         <label class="form-check-label" for="check2">Gas connection</label>  
                     </div>
                     <div class="col">
-                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                        <input type="checkbox" class="form-check-input" id="check2" name="add[]" value="Generator" >
                         <label class="form-check-label" for="check2">Generator</label>  
                     </div>
                 </div>
@@ -247,15 +279,15 @@ if(isset($_POST['submit'])){
 
                 <div class="row additional-info-font" id="part-5">
                     <div class="col">
-                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                        <input type="checkbox" class="form-check-input" id="check2" name="add[]" value="Lift">
                         <label class="form-check-label" for="check2">Lift</label>  
                     </div>
                     <div class="col">
-                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                        <input type="checkbox" class="form-check-input" id="check2" name="add[]" value="CCTV">
                         <label class="form-check-label" for="check2">CCTV</label>  
                     </div>
                     <div class="col">
-                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                        <input type="checkbox" class="form-check-input" id="check2" name="add[]" value="Fire Protection">
                         <label class="form-check-label" for="check2">Fire Protection</label>  
                     </div>
                 </div>
@@ -272,14 +304,20 @@ if(isset($_POST['submit'])){
 			</div>
             
 
-        </form>
-  
-
-    
+        </form>  
         
         
         <!--=====  JS =====-->
         <script src="js/bariwala_js.js"></script>
         <script src="js/city-list.js"></script>
+
+        <script>
+       function requestSubmission(){
+       alert('Request Submitted');
+
+      }
+      </script>
+  
+
     </body>
 </html>
