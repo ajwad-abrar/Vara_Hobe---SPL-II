@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
         //   $sql="INSERT INTO `flats` (`id`, `city`, `location`, `block`, `address`, `building_no`, `floor`, `apartment_no`,`bedroom`,`bathroom`,`price`,`size`,`advance_payment`,`parking`,`gas`,`generator`,`lift`,`cctv`,`fire_protection`)
         //   VALUES (NULL, '$city','$location', '$block', '$address', '$building_no', '$floor', '$apartment_no','$bed','$bath','$price','$size','$advance_payment','yes','yes','yes','yes','yes','yes');";
   
-        $sql="INSERT INTO `flats` (`id`, `city`, `location`, `block`, `address`, `building_no`, `floor`, `apartment_no`,`bedroom`,`bathroom`,`price`,`size`,`advance_payment`,`additional_facilities`)
+        $sql="INSERT INTO `apartment` (`id`, `city`, `location`, `block`, `address`, `building_no`, `floor`, `apartment_no`,`bedroom`,`bathroom`,`price`,`size`,`advance_payment`,`additional_facilities`)
         VALUES (NULL, '$city','$location', '$block', '$address', '$building_no', '$floor', '$apartment_no','$bed','$bath','$price','$size','$advance_payment','$chk');";
 
 

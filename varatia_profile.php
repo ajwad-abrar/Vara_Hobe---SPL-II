@@ -116,18 +116,18 @@ session_start();
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">NID</p>
-                                                <h6 class="text-muted f-w-400">01984567679</h6>
+                                                <h6 class="text-muted f-w-400">1212121212</h6>
                                             </div>
                                         </div>
-                                        <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Home Info</h6>
+                                        <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Apartment Info</h6>
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Flat ID</p>
                                                 <h6 class="text-muted f-w-400">23A22</h6>
                                             </div>
                                             <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Flat </p>
-                                                <h6 class="text-muted f-w-400"></h6>
+                                            <p class="m-b-10 f-w-600">Flat Details</p>
+                                                <a href="varatia_my_home.php">My Flat Details</a>
                                             </div>
                                         </div>
                                         <ul class="social-link list-unstyled m-t-40 m-b-10">
