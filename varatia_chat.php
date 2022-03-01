@@ -14,9 +14,9 @@ session_start();
 
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="css/varatia_style.css">
-        <link rel="stylesheet" href="css/varatia_home_style.css">
+        <link rel="stylesheet" href="css/varatia_chat_style.css">
 
-        <title>Varatia Home</title>
+        <title>Varatia Chat</title>
     </head>
     <body id="body-pd">
         <header class="header" id="header">
@@ -38,7 +38,7 @@ session_start();
                     </a>
 
                     <div class="nav__list">
-                        <a href="varatia_home.php" class="nav__link active">
+                        <a href="varatia_home.php" class="nav__link">
                         <i class='bx bxs-home nav__icon' ></i>
                             <span class="nav__name">Home</span>
                         </a>
@@ -59,15 +59,15 @@ session_start();
                             <span class="nav__name">My Home</span>
                         </a>
 
+                        <a href="varatia_my_home.php" class="nav__link active">
+                            <i class='bx bxs-message-rounded-dots nav__icon' ></i>
+                            <span class="nav__name">My Home</span>
+                        </a>
+
                         <!-- <a href="varatia_review.php" class="nav__link">
                             <i class='bx bxs-star-half nav__icon' ></i>
                             <span class="nav__name">Review</span>
                         </a> -->
-
-                        <a href="varatia_chat.php" class="nav__link">
-                            <i class='bx bxs-message-rounded-dots nav__icon' ></i>
-                            <span class="nav__name">Chat</span>
-                        </a>
 
 
                         <!-- <a href="#" class="nav__link">
@@ -89,46 +89,33 @@ session_start();
        
 
 
-    <?php
-
-        function showName(){
-
-            $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
 
 
-            $email = $_SESSION['email'];
+        <h2>Chat window:</h2>
+        
+        <button class="open-button" onclick="openForm()">Chat</button>
 
-            $reg=" select name from varatia where email= '$email'";
+        <div class="chat-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <h1>Chat</h1>
 
+            <label for="msg"><b>Message</b></label>
+            <textarea placeholder="Type message.." name="msg" required></textarea>
 
-            $result = mysqli_query($con, $reg);
+            <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+        </div>
 
-            // echo "<br>";
-
-            while($row = mysqli_fetch_assoc($result)){
-                echo "{$row['name']}";
-            }
+        <script>
+        function openForm() {
+        document.getElementById("myForm").style.display = "block";
         }
-    ?>    
 
-
-
-    <div id="welcome">  
-        <h1 class="welcome_font"> 
-        <?php
-
-            echo "Welcome Back, ";
-
-            showName();
-
-            echo "<br><br><br>Happy " . date("l");
-
-            ?>  
-	    </h1>
-    </div>
-
-
-    
+        function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+        }
+        </script>
         
         
         <!--=====  JS =====-->
