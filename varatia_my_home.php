@@ -60,9 +60,14 @@ session_start();
                             <span class="nav__name">My Home</span>
                         </a>
 
-                        <a href="varatia_review.php" class="nav__link">
+                        <!-- <a href="varatia_review.php" class="nav__link">
                             <i class='bx bxs-star-half nav__icon' ></i>
                             <span class="nav__name">Review</span>
+                        </a> -->
+
+                        <a href="varatia_chat.php" class="nav__link">
+                            <i class='bx bxs-message-rounded-dots nav__icon' ></i>
+                            <span class="nav__name">Chat</span>
                         </a>
 
 
@@ -86,32 +91,75 @@ session_start();
 
 
 
-        <div class="container h-100">
-    	    <div class="row align-items-center h-100">
-                <div class="col-10 mx-auto">
-                    <div class="card h-100 justify-content-center">
-                        <div style=" padding: 5%;" class="text-center">
-                        <img src="img/main_bg_img.jpg" style="height: 250px; width: 220px;margin:0 auto; border-radius: 50%; padding-bottom: 20px" alt="">
-                        
-                        <h5 class="card-title text-center" style="color:dodgerblue; font-size: 28px; font-weight: 800; margin-bottom: -5px;">Home Profile <br> <br></h5>
-                        
-                        <div class="profile_text" style="padding-left: 20%;">
-                                <h4 class="text-start"> <b>ID: </b>190042106</h4>
-                                <h4 class="text-start"> <b>City: </b>Dhaka</h4>
-                                <h4 class="text-start"> <b>Area: </b>Gulshan</h4>
-                                <h4 class="text-start"> <b>Size: </b>1200 sqft</h4>
-                                <h4 class="text-start"> <b>Floor Level: </b>10</h4>
-                                <h4 class="text-start"> <b>Bed: </b>4</h4>
-                                <h4 class="text-start"> <b>Bath: </b>2</h4>
-                                <h4 class="text-start"> <b>Rent: </b>12000/- BDT</h4>
-                        </div>
-                        
+        <h1 class="text-center">Flat Details</h1>  
 
-                        </div>
-                    </div>
-        	    </div>
-    	    </div> 
-	    </div>
+        <img class="center" src="img/home.jpg" alt="" width="500px" height="350px">
+
+        <div class="container mt-3">
+            <h2 class="text-center">Here are the details of the flat</h2>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Price</th>
+                    <th>24000/- BDT</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>City</td>
+                    <td>Dhaka</td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>Uttara</td>
+                </tr>
+                <tr>
+                    <td>Sector</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Beds</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Baths</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Direction Facing</td>
+                    <td>South</td>
+                </tr>
+                <tr>
+                    <td>Floor</td>
+                    <td>10th</td>
+                </tr>
+                <tr>
+                    <td>Parking</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Gas Connection</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Generator</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Lift</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>CCTV</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Fire Protection</td>
+                    <td>No</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
 
     

@@ -1,3 +1,8 @@
+<?php
+    session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -66,7 +71,7 @@
 
             $email = $_SESSION['email'];
 
-            $reg=" select name from admin where email= '$email'";
+            $reg= "select name from admin where email= '$email'";
 
 
             $result = mysqli_query($con, $reg);
