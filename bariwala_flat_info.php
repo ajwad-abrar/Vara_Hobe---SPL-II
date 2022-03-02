@@ -1,5 +1,21 @@
 <?php
 session_start();
+
+$con =mysqli_connect('localhost', 'root','190042106','vara_hobe');
+    
+if(!$con){
+  echo 'connection error'.mysqli_connect_error();
+}
+
+$sql='SELECT *
+FROM `flats`';
+
+$result=mysqli_query($con,$sql);
+
+$requests= mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+mysqli_free_result($result);
+
 ?>
 
 <!DOCTYPE html>
@@ -71,83 +87,40 @@ session_start();
 
 
 
-      <button class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Create</button>
-
-        
-              <!--add apartment modal starts-->
-              <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Write to us</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-user prefix grey-text"></i>
-          <input type="text" id="form34" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="form34">Your name</label>
-        </div>
-
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="form29" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="form29">Your email</label>
-        </div>
-
-        <div class="md-form mb-5">
-          <i class="fas fa-tag prefix grey-text"></i>
-          <input type="text" id="form32" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="form32">Subject</label>
-        </div>
-
-        <div class="md-form">
-          <i class="fas fa-pencil prefix grey-text"></i>
-          <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
-          <label data-error="wrong" data-success="right" for="form8">Your message</label>
-        </div>
-
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-unique">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-                <!--add apartment modal ends-->
-
-
-
-
-
-
+   
 
        <div class="row">
+
+
+       <?php foreach ($requests as $request):  ?>
+
            <div class="col">
 
+           <!-- <?php   $a_id = $_SESSION['id'] ;   
+                  echo '$a_id';
+               
+               ?> -->
+                  
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="img/home.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Uttara sector-2 flat</h5>
-                        <p class="card-text"> BDT 180000 / MONTH </p>
+                        <h5 class="card-title"><?php  echo htmlspecialchars($request['location']);?> ,<?php  echo htmlspecialchars($request['block']);?> flat</h5>
+                        <p class="card-text"> BDT <?php  echo htmlspecialchars($request['price']);?> / MONTH </p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">2700 SQFT</li>
-                        <li class="list-group-item">3 ROOM</li>
-                        <li class="list-group-item">4 BATHROOM</li>
+                        <li class="list-group-item"><?php  echo htmlspecialchars($request['size']);?> SQFT</li>
+                        <li class="list-group-item"><?php  echo htmlspecialchars($request['bedroom']);?> ROOM</li>
+                        <li class="list-group-item"><?php  echo htmlspecialchars($request['bathroom']);?> BATHROOM</li>
                     </ul>
                     <div class="card-body">
                         <a href="bariwala_flat_details.php" class="card-link">Flat Details</a>
                     </div>
                 </div>
             </div>
-           <div class="col">
+
+            <?php endforeach; ?>
+
+           <!-- <div class="col">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="img/home.jpg" alt="Card image cap">
                     <div class="card-body">
@@ -163,8 +136,8 @@ session_start();
                         <a href="bariwala_flat_details.php" class="card-link">Flat Details</a>
                     </div>
                 </div>
-            </div>
-           <div class="col">
+            </div> -->
+           <!-- <div class="col">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="img/home.jpg" alt="Card image cap">
                     <div class="card-body">
@@ -180,7 +153,7 @@ session_start();
                         <a href="bariwala_flat_details.php" class="card-link">Flat Details</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         

@@ -1,3 +1,91 @@
+<?php
+session_start();
+
+// $con =mysqli_connect('localhost', 'root','190042106','vara_hobe');
+    
+// if(!$con){
+//   echo 'connection error'.mysqli_connect_error();
+// }
+
+// $query1 = " select * from bariwala where email='$email' ";
+//   $result1 = mysqli_query($con, $query1);
+//   $numberOfRows1 = mysqli_num_rows($result1);
+  
+//   $_SESSION['email'] = $email;
+  
+//   if($numberOfRows1 == 1){
+  
+//   while($row = mysqli_fetch_assoc($result1)) {
+  
+//     if(password_verify($password, $row['password'] )){
+
+     
+//         $_SESSION['email'] = $email;
+//         header('location: bariwala_home.php');
+//         die;
+     
+//     }
+
+//     else{
+
+//     echo '<script type ="text/JavaScript">';  
+//       echo 'alert("Wrong Password")';  
+//       echo '</script>';
+
+//     }
+//   }
+    
+
+
+// if (isset($_GET) && isset($_GET['id']))
+// {
+//    $id = mysql_real_escape_string($_GET['id']);
+   
+// }
+
+// else{
+//     header('Location :bariwala_flat_info.php');
+
+//     exit();
+// }
+
+//   $result = mysql_query("SELECT * FROM flats WHERE id = '". $id ."' ");
+    
+// // $sql="SELECT * FROM flats WHERE id = '$id'";
+
+// // $result=mysqli_query($con,$sql);
+
+// // $requests= mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+// // mysqli_free_result($result);
+
+
+// if (mysql_num_rows($result) == 0) {
+//     echo 'No info here';
+//  } 
+ 
+//  else {
+
+
+// while($each_row = mysql_fetch_array($result))
+// {
+     
+//      echo $each_row['price'];
+//      echo $each_row['city'];
+//      echo $each_row['block'];
+// }
+//  }
+
+
+
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -77,7 +165,7 @@
                 <thead>
                 <tr>
                     <th>Price</th>
-                    <th>24000/- BDT</th>
+                    <th>12000 /- BDT</th>
                 </tr>
                 </thead>
                 <tbody>
