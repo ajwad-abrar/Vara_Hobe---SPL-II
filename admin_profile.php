@@ -33,7 +33,7 @@
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
                 <div>
-                    <a href="#" class="nav__logo">
+                <a href="#" class="nav__logo">
                         <i class='bx bx-layer nav__logo-icon'></i>
                         <span class="nav__logo-name">Vara Hobe</span>
                     </a>
@@ -49,6 +49,15 @@
                             <span class="nav__name">Profile</span>
                         </a>
 
+                        <a href="admin_activity_log.php" class="nav__link">
+                            <i class='bx bxs-search nav__icon' ></i>
+                            <span class="nav__name">Activity Log</span>
+                        </a>
+
+                        <a href="admin_overall_info.php" class="nav__link">
+                            <i class='bx bxs-receipt nav__icon' ></i>
+                            <span class="nav__name">Overall Info</span>
+                        </a>
 
                     </div>
                 </div>

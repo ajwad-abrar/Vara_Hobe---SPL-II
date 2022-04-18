@@ -15,9 +15,9 @@
 
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="css/admin_style.css">
-        <link rel="stylesheet" href="css/admin_home_style.css">
+        <link rel="stylesheet" href="css/admin_profile_style.css">
 
-        <title>Admin Home</title>
+        <title>Admin Overall Information</title>
     </head>
     <body id="body-pd">
         <header class="header" id="header">
@@ -26,20 +26,20 @@
             </div>
 
             <div class="header__img">
-                <img src="img/demo.jpg" alt="">
+                <img src="img/admin_profile_pic.jfif" alt="">
             </div>
         </header>
 
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
                 <div>
-                    <a href="#" class="nav__logo">
+                <a href="#" class="nav__logo">
                         <i class='bx bx-layer nav__logo-icon'></i>
                         <span class="nav__logo-name">Vara Hobe</span>
                     </a>
 
                     <div class="nav__list">
-                        <a href="admin_home.php" class="nav__link active">
+                        <a href="admin_home.php" class="nav__link">
                         <i class='bx bxs-home nav__icon' ></i>
                             <span class="nav__name">Home</span>
                         </a>
@@ -54,7 +54,7 @@
                             <span class="nav__name">Activity Log</span>
                         </a>
 
-                        <a href="admin_overall_info.php" class="nav__link">
+                        <a href="admin_overall_info.php" class="nav__link active">
                             <i class='bx bxs-receipt nav__icon' ></i>
                             <span class="nav__name">Overall Info</span>
                         </a>
@@ -69,50 +69,10 @@
             </nav>
         </div>
 
-    
-        
-
-    <?php
-
-        function showName(){
-
-            $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
-
-
-            $email = $_SESSION['email'];
-
-            $reg= "select name from admin where email= '$email'";
-
-
-            $result = mysqli_query($con, $reg);
-
-            // echo "<br>";
-
-            while($row = mysqli_fetch_assoc($result)){
-                echo "{$row['name']}";
-            }
-        }
-    ?>    
+       
 
 
 
-    <div id="welcome">  
-        <h1 class="welcome_font"> 
-        <?php
-
-            echo "Welcome Back, ";
-
-            showName();
-
-            echo "<br><br><br>Happy " . date("l");
-
-            ?>  
-	    </h1>
-    </div>
-
-
-    
-        
         
         <!--=====  JS =====-->
         <script src="js/admin_js.js"></script>

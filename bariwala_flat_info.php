@@ -8,7 +8,7 @@ if (!$con) {
 }
 
 $sql = 'SELECT *
-FROM `apartment`';
+FROM `flats`';
 
 $result = mysqli_query($con, $sql);
 
