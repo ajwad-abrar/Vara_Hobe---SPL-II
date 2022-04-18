@@ -271,23 +271,23 @@ if(isset($_POST['login'])){
             <h2 class="title">Varatia Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" name="name"/>
+              <input type="text" placeholder="Name" name="name" required/>
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" name="email"/>
+              <input type="email" placeholder="Email" name="email" required/>
             </div>
             <div class="input-field">
               <i class="fas fa-id-card"></i>
-              <input type="number" step="1" placeholder="NID number" name="nid" />
+              <input type="number" step="1" minlength="10" maxlength="10" placeholder="NID number" name="nid" required />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" name="pwd"/>
+              <input type="password" minlength="8" placeholder="Password" name="pwd" required/>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Confirm Password" name="cpwd" />
+              <input type="password" placeholder="Confirm Password" name="cpwd" required/>
             </div>
 
 

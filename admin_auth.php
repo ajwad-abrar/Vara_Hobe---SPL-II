@@ -83,7 +83,7 @@ if(isset($_POST['login'])){
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" name="pwd" placeholder="Password" />
+              <input type="password" name="pwd"  placeholder="Password" />
             </div>
             <input type="submit" value="Login" name="login" class="btn solid" />
             <p class="social-text">Or Sign in with social platforms</p>

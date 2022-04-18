@@ -76,7 +76,7 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Email</p>
-                                                <h6 class="text-muted f-w-400">ajwadabrar27@gmail.com</h6>
+                                                <h6 class="text-muted f-w-400">nafisa@gmail.com</h6>
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Phone</p>
@@ -86,7 +86,7 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Gender</p>
-                                                <h6 class="text-muted f-w-400">Male</h6>
+                                                <h6 class="text-muted f-w-400">Female</h6>
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">NID</p>

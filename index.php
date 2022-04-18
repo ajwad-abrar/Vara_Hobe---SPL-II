@@ -108,8 +108,7 @@
         </div>
         <div class="col-md-6 wow fadeInRight">
         <div class="embed-responsive embed-responsive-16by9">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/G8SKzENt8Is" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_Ecl_XEETEA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        </div>
         </div>
       </div>
     </div>
@@ -311,7 +310,7 @@
 
       </div>      <hr>
 
-      <p class="copyright">Made with <i class="fa fa-heart-o"></i> by Ajwad Abrar</p>
+      <p class="copyright">Made with <i class="fa fa-heart-o"></i> by Group 8</p>
 
     </div>
 
