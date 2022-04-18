@@ -15,7 +15,6 @@
 
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="css/admin_style.css">
-        <link rel="stylesheet" href="css/admin_profile_style.css">
 
         <title>Admin Overall Information</title>
     </head>
