@@ -247,7 +247,7 @@ if(isset($_POST['login'])){
             </div>
             <input type="submit" value="Sign In" class="btn solid" name="login" />
             
-            <a href="password_reset.php" class="float-end text-blue" >Forgot your password?</a>
+            <!-- <a href="password_reset.php" class="float-end text-blue" >Forgot your password?</a>
             
             <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
@@ -263,7 +263,7 @@ if(isset($_POST['login'])){
               <a href="#" class="social-icon">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-            </div>
+            </div> -->
           </form>
 
 
@@ -277,6 +277,13 @@ if(isset($_POST['login'])){
               <i class="fas fa-envelope"></i>
               <input type="email" placeholder="Email" name="email" required/>
             </div>
+
+            <div class="input-field">
+              <i class="fas fa-id-card"></i>
+              <input type="number" step="1" minlength="10" maxlength="10" placeholder="NID number" name="nid" required />
+            </div>
+
+
             <div class="input-field">
               <i class="fas fa-id-card"></i>
               <input type="number" step="1" minlength="10" maxlength="10" placeholder="NID number" name="nid" required />
@@ -294,9 +301,7 @@ if(isset($_POST['login'])){
 
             <input type="submit" class="btn" value="Sign Up" name="register" />
 
-
-
-            <p class="social-text">Or Sign up with social platforms</p>
+            <!-- <p class="social-text">Or Sign up with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon">
                 <i class="fab fa-facebook-f"></i>
@@ -310,7 +315,8 @@ if(isset($_POST['login'])){
               <a href="#" class="social-icon">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-            </div>
+            </div> -->
+
           </form>
         </div>
       </div>

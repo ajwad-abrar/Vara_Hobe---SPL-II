@@ -93,12 +93,12 @@ session_start();
 
         function showName(){
 
-            $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+            $con = mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
 
 
             $email = $_SESSION['email'];
 
-            $reg=" select name from varatia where email= '$email'";
+            $reg=" select name from varatia where email = '$email'";
 
 
             $result = mysqli_query($con, $reg);

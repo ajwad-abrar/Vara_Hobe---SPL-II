@@ -86,7 +86,7 @@ if(isset($_POST['login'])){
               <input type="password" name="pwd"  placeholder="Password" />
             </div>
             <input type="submit" value="Login" name="login" class="btn solid" />
-            <p class="social-text">Or Sign in with social platforms</p>
+            <!-- <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon">
                 <i class="fab fa-facebook-f"></i>
@@ -100,7 +100,7 @@ if(isset($_POST['login'])){
               <a href="#" class="social-icon">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-            </div>
+            </div> -->
           </form>
         </div>
       </div>
