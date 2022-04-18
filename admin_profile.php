@@ -1,3 +1,8 @@
+<?php
+    session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,7 +44,7 @@
                             <span class="nav__name">Home</span>
                         </a>
 
-                        <a href="bariwala_profile.php" class="nav__link active">
+                        <a href="admin_profile.php" class="nav__link active">
                             <i class='bx bxs-user nav__icon' ></i>
                             <span class="nav__name">Profile</span>
                         </a>
@@ -48,7 +53,7 @@
                     </div>
                 </div>
 
-                <a href="#" class="nav__link">
+                <a href="admin_logout.php" class="nav__link">
                     <i class='bx bx-log-out nav__icon' ></i>
                     <span class="nav__name">Log Out</span>
                 </a>
@@ -66,7 +71,7 @@
                                 <div class="col-sm-4 bg-c-lite-green user-profile">
                                     <div class="card-block text-center text-white">
                                         <div class="m-b-25"> <img src="img/admin_profile_pic.jfif" class="img-radius" alt="User-Profile-Image"> </div>
-                                        <h6 class="f-w-600">Nafisa Tabassum</h6>
+                                        <h6 class="f-w-600"><?php showName() ?></h6>
                                         <p>Admin</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                     </div>
                                 </div>
@@ -76,22 +81,26 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Email</p>
-                                                <h6 class="text-muted f-w-400">nafisa@gmail.com</h6>
+                                                <h6 class="text-muted f-w-400"><?php showEmail() ?></h6>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <!-- <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Phone</p>
                                                 <h6 class="text-muted f-w-400">01984567679</h6>
+                                            </div> -->
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">NID</p>
+                                                <h6 class="text-muted f-w-400"><?php showNID() ?></h6>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Gender</p>
-                                                <h6 class="text-muted f-w-400">Female</h6>
+                                                <h6 class="text-muted f-w-400"><?php showGender() ?></h6>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <!-- <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">NID</p>
-                                                <h6 class="text-muted f-w-400">1212121212</h6>
-                                            </div>
+                                                <h6 class="text-muted f-w-400"><?php showNID() ?></h6>
+                                            </div> -->
                                         </div>
                                         <!-- <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Apartment Info</h6>
                                         <div class="row">
@@ -119,6 +128,81 @@
         </div>
 
         
+
+
+
+        <?php
+
+            function showName(){
+
+                $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+                $email = $_SESSION['email'];
+
+                $reg=" select name from admin where email= '$email'";
+
+
+                $result = mysqli_query($con, $reg);
+
+                echo "<br>";
+
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "{$row['name']}";
+                }
+            }
+
+            function showEmail(){
+
+                $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+                $email = $_SESSION['email'];
+
+                $reg=" select email from admin where email= '$email'";
+
+                $result = mysqli_query($con, $reg);
+
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "{$row['email']}";
+                }
+            }
+
+            function showNID(){
+
+                $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+                $email = $_SESSION['email'];
+
+                $reg=" select nid from admin where email= '$email'";
+
+                $result = mysqli_query($con, $reg);
+
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "{$row['nid']}";
+                }
+            }
+
+
+            function showGender(){
+
+                $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+                $email = $_SESSION['email'];
+
+                $reg=" select gender from admin where email= '$email'";
+
+                $result = mysqli_query($con, $reg);
+
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "{$row['gender']}";
+                }
+            }
+
+
+        ?>
 
         
         <!--=====  JS =====-->
