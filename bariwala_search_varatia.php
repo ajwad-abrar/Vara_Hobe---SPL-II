@@ -44,9 +44,8 @@
 
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="css/bariwala_style.css">
-        <link rel="stylesheet" href="css/bariwala_home_style.css">
 
-        <title>Bariwala Home</title>
+        <title>Bariwala Search Varatia</title>
     </head>
     <body id="body-pd">
         <header class="header" id="header">
@@ -68,7 +67,7 @@
                     </a>
 
                     <div class="nav__list">
-                        <a href="bariwala_home.php" class="nav__link active">
+                        <a href="bariwala_home.php" class="nav__link">
                         <i class='bx bxs-home nav__icon' ></i>
                             <span class="nav__name">Home</span>
                         </a>
@@ -92,7 +91,7 @@
                             <i class='bx bxs-send nav__icon' ></i>
                             <span class="nav__name">Request</span>
                         </a>
-                        <a href="bariwala_search_varatia.php" class="nav__link">
+                        <a href="bariwala_search_varatia.php" class="nav__link active">
                             <i class='bx bxs-search nav__icon' ></i>
                             <span class="nav__name">Varatia Search</span>
                         </a>
@@ -112,43 +111,99 @@
 
 
 
+
+        <div class="tab-content">
+
+            <div id="inbox" class="tab-pane active jumbotron"><p></p>
+
+                <h1 class="text-center" style="color: orangered; margin-bottom: 50px;">Write down the varatia NID: </h1>
+
+
+
+                <form action="bariwala_search_varatia.php" method="POST">
+
+                    <div class="container">
+
+                        <div class="row">
+                            
+                            <div class="col">
+
+                            <input type="text" class="form-control" id="search_form" placeholder="Enter NID of the varatia: " name="varatia_nid">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <button type="submit" class="btn btn-success btn-lg" id="submit_button" name="bariwala_search_varatia">Submit</button>
+                        <br> <br>
+                    </div>
+
+
+                </form>
+
+                <div class="card mx-auto" style="width: 28rem;" id="profile-card">
+
+                <div class="card-body">
+                    <h4 class="card-title text-center" style="color:dodgerblue; font-size: 26px; font-weight: 700;">Varatia Details</h4>
+                    <h5 class="card-title" style="color: black;"><?php searchDetailsOfTheMovie(); ?></h5>
+
+                </div>
+
+                </div>         
+
+            </div>          
+
+        </div>
+
+
         <?php
 
-            function showName(){
+            function searchDetailsOfTheMovie(){
 
-                $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+                if(isset($_POST['bariwala_search_varatia'])) {
+
+                $servername = "localhost";
+                $username = "root";
+                $password = "190042106";
+                $dbname = "vara_hobe";
+
+                // Create connection
+                $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 
-                $email = $_SESSION['email'];
+                $varatia_nid = $_POST['varatia_nid'];
 
-                $reg=" select name from bariwala where email= '$email'";
+                $sql1 = "SELECT * FROM varatia V WHERE V.nid = '$varatia_nid'";
 
+                $result1 = mysqli_query($conn, $sql1);
 
-                $result = mysqli_query($con, $reg);
-
-                // echo "<br>";
-
-                while($row = mysqli_fetch_assoc($result)){
-                    echo "{$row['name']}";
+                // Check connection
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
                 }
+
+                if (mysqli_query($conn, $sql1)) {
+                    // output data of each row
+                    while($row = mysqli_fetch_assoc($result1)) {
+                        echo "<b>Name: </b>" .$row['nid'] ." <br> <br>";
+                        echo "<b>Email: </b>" .$row['email'] ." <br> <br>";
+                        echo "<b>NID: </b>" .$row['nid'] ." <br> <br>";
+
+                        // echo "<b> Reg Date: </b>" .date("d M, Y", strtotime($row['reg_date']))." ";   //Not needed rn
+                    }
+                } else {
+                    echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
+                }
+
+
+                mysqli_close($conn);
+
             }
-        ?>    
+            }    
 
-
-
-        <div id="welcome">  
-            <h1 class="welcome_font"> 
-                <?php
-
-                    echo "Welcome Back, ";
-
-                    showName();
-
-                    echo "<br><br><br>Happy " . date("l");
-
-                ?>  
-            </h1>
-        </div>
+        ?>
 
 
     

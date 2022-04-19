@@ -93,6 +93,11 @@
                             <span class="nav__name">Request</span>
                         </a>
 
+                        <a href="bariwala_search_varatia.php" class="nav__link">
+                            <i class='bx bxs-search nav__icon' ></i>
+                            <span class="nav__name">Varatia Search</span>
+                        </a>
+
                     </div>
                 </div>
 

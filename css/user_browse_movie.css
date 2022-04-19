@@ -1,0 +1,122 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+body{
+     background: #fafafa;
+     align-content: center;
+}
+
+
+#search_flat{
+    margin-bottom: 70px;
+    color:orangered;
+}
+
+#part-2{
+    margin-top: 100px;
+}
+
+
+#submit_button{
+    margin-top: 50px;
+    width: 15%;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    color: white;
+    transition: 0.5s;
+  
+}
+
+
+select{
+    color: white;
+    width: 250px;
+    text-align: center;
+}
+
+.col h4{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#submit_button{
+
+  margin-top: 12px;
+  width: 20%;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  color: white;
+  transition: 0.5s;
+
+}
+
+#submit_button:hover{
+background:crimson;
+} 
+
+#email_head{
+  margin-top: -60px;
+  margin-bottom: 35px;
+  color:black;
+}
+
+#prb{
+  width: 100%;
+}
+
+
+.label-style{
+  color:black;
+  font-weight: 700;
+}
+
+.checkbox-style{
+  color:crimson;
+}
+
+.modal-body {
+
+  /* Making sure the footer & header of the modal stays fixed */
+  max-height: calc(100vh - 210px);
+  overflow-y: auto;
+}
+
+
+#profile-card{
+
+margin-top: 40px;
+
+}
+
+#movie_form{
+margin-bottom: -20px;
+} 
+
