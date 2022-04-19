@@ -46,9 +46,9 @@ if(isset($_POST['submit'])){
     $city=mysqli_real_escape_string($con,$_POST['city']);
     $location=mysqli_real_escape_string($con,$_POST['location']);
     $sector=mysqli_real_escape_string($con,$_POST['sector']);
-    $bed= mysqli_real_escape_string($con,$_POST['bed']);
-    $bath= mysqli_real_escape_string($con,$_POST['bath']);
-    $price= mysqli_real_escape_string($con,$_POST['price']);
+    // $bed= mysqli_real_escape_string($con,$_POST['bed']);
+    // $bath= mysqli_real_escape_string($con,$_POST['bath']);
+    // $price= mysqli_real_escape_string($con,$_POST['price']);
     
    
     $sql=  "select * from flats where city='$city' and location='$location' and flat_status <>'Filled' order by price asc";
@@ -230,7 +230,7 @@ if(isset($_POST['request_flat'])){
                     </div>
 
 
-                    <div class="w-100" id="part-2"></div> 
+                    <!-- <div class="w-100" id="part-2"></div> 
                     <div class="col">
                         <h4 class="text-center">Beds</h4>
                         <select class="form-select form-select-md mb-3"  id="bed" name="bed">
@@ -259,7 +259,7 @@ if(isset($_POST['request_flat'])){
                             <option value="4">15001 - 20000</option>
                             <option value="5">20001 - 25000</option>
                         </select>
-                    </div>
+                    </div> -->
 
                 </div>
 
