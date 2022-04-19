@@ -26,7 +26,7 @@
   <section id="header">
 
     <nav class="navbar navbar-light">
-      <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Logo"></a>
+      <a class="navbar-brand" href="index.php"><img src="img/logo.png" alt="Logo"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
       </button>

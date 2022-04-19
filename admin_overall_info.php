@@ -1,5 +1,35 @@
 <?php
-    session_start();
+	session_start();
+
+	$flag = 0;
+
+	include('admin_photo.php');
+
+	function getImagePath(){
+
+		$con = mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+		$email = $_SESSION['email'];
+
+		$reg = "select img_path from admin where email= '$email'";
+
+		$result = mysqli_query($con, $reg);
+
+		while($row = mysqli_fetch_assoc($result)){
+
+			if($row['img_path'] == ""){
+				return "profile_picture/admin_default.png";
+			}
+			
+			return "{$row['img_path']}";
+		}
+
+	}
+
+	$imagePath = getImagePath();
+	
+
 ?>
 
 
@@ -26,7 +56,7 @@
             </div>
 
             <div class="header__img">
-                <img src="img/admin_profile_pic.jfif" alt="">
+                <img src="<?php echo $imagePath ?>" alt="">
             </div>
         </header>
 
