@@ -49,13 +49,13 @@ $reg = " select nid from bariwala where email= '$email'";
 
 $result1 = mysqli_query($con, $reg);
 
+global $bariwala_nid;
 
 while($row = mysqli_fetch_assoc($result1)){
     $bariwala_nid = $row['nid'];
 }
 
-$sql = "SELECT *
-FROM `flats` where bariwala_nid = $bariwala_nid";
+$sql = "SELECT * FROM `flats` where bariwala_nid = '$bariwala_nid'";
 
 $result = mysqli_query($con, $sql);
 
@@ -156,58 +156,29 @@ mysqli_free_result($result);
                         ?> -->
 
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="img/home.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="<?php echo htmlspecialchars($request['img_path']); ?>" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($request['location']); ?> ,<?php echo htmlspecialchars($request['block']); ?> flat</h5>
-                        <p class="card-text"> BDT <?php echo htmlspecialchars($request['price']); ?> / MONTH </p>
+                        <p class="card-text"> <b> BDT <?php echo htmlspecialchars($request['price']); ?> / MONTH </b> </p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><?php echo htmlspecialchars($request['size']); ?> SQFT</li>
-                        <li class="list-group-item"><?php echo htmlspecialchars($request['bedroom']); ?> ROOM</li>
-                        <li class="list-group-item"><?php echo htmlspecialchars($request['bathroom']); ?> BATHROOM</li>
+                        <li class="list-group-item">Size: <?php echo htmlspecialchars($request['size']); ?> sqft</li>
+                        <li class="list-group-item">Bed: <?php echo htmlspecialchars($request['bedroom']); ?></li>
+                        <li class="list-group-item">Bath: <?php echo htmlspecialchars($request['bathroom']); ?></li>
+                        <li class="list-group-item">Level No: <?php echo htmlspecialchars($request['floor']); ?> </li>
+                        <li class="list-group-item">Advance Payment: <?php echo htmlspecialchars($request['advance_payment']); ?> </li>
                     </ul>
                     <div class="card-body">
-                        <a href="bariwala_flat_details.php" class="card-link">Flat Details</a>
+                        <!-- <a href="bariwala_flat_details.php" class="card-link">Flat Details</a> -->
+                        <p><b>Additional Facilities: </b><?php echo htmlspecialchars($request['additional_facilities']); ?></p>
                     </div>
                 </div>
             </div>
 
+            <br> <br>
+
         <?php endforeach; ?>
 
-        <!-- <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="img/home.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Banani flat</h5>
-                        <p class="card-text"> BDT 180000 / MONTH </p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">2700 SQFT</li>
-                        <li class="list-group-item">3 ROOM</li>
-                        <li class="list-group-item">4 BATHROOM</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="bariwala_flat_details.php" class="card-link">Flat Details</a>
-                    </div>
-                </div>
-            </div> -->
-        <!-- <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="img/home.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Gulshan-2 flat</h5>
-                        <p class="card-text"> BDT 180000 / MONTH </p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">2700 SQFT</li>
-                        <li class="list-group-item">3 ROOM</li>
-                        <li class="list-group-item">4 BATHROOM</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="bariwala_flat_details.php" class="card-link">Flat Details</a>
-                    </div>
-                </div>
-            </div> -->
     </div>
 
 
