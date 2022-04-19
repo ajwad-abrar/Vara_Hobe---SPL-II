@@ -60,7 +60,7 @@
     }
 
     else{
-        echo "Your request for Flat ID: $flat_id is pending";
+        // echo "Your request for Flat ID: $flat_id is pending";
     }
     
     $flat_sql = "SELECT * FROM flats WHERE id = $flat_id";
@@ -166,7 +166,7 @@
             <img class="center" src="img/home.jpg" alt="" width="500px" height="350px">
 
             <div class="container mt-3">
-                <h2 class="text-center">Here are the details of the flat</h2>
+                <h2 class="text-center"> <b> Here are the details of the flat </b> </h2>
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -220,6 +220,76 @@
             </div>
 
         <?php endif; ?>
+
+
+        <?php if(($varatia_request_approved == 'No')): ?>
+            
+            
+            <h1 class="text-center" id="pending">Your request is pending </h1>  <br>
+            <h2 class="text-center">Details of the flat you requested</h2>   
+
+            <img class="center" src="img/home.jpg" alt="" width="500px" height="350px">
+
+            <div class="container mt-3">
+                <!-- <h2 class="text-center">Here are the details of the flat</h2> -->
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Price</th>
+                        <th>24000/- BDT</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Size</td>
+                        <td><?php echo $size; ?> sqft</td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td><?php echo $city; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td><?php echo $location; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Sector/ Block</td>
+                        <td><?php echo $address; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Beds</td>
+                        <td><?php echo $beds; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Baths</td>
+                        <td><?php echo $baths; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Floor</td>
+                        <td><?php echo $floor; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Building No</td>
+                        <td><?php echo $building; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Advance Payment(Month)</td>
+                        <td><?php echo $advance_payment ?></td>
+                    </tr>
+                    <tr>
+                        <td>Additional Facilities</td> 
+                        <td><?php echo $additional_facilities ?></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        <?php endif; ?>
+
+
+
+        
+
 
 
     
