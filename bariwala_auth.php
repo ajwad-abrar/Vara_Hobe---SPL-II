@@ -160,7 +160,7 @@ if(isset($_POST['login'])){
               <input type="password" placeholder="Password" name="pwd" />
             </div>
             <input type="submit" value="Login" class="btn solid" name="login"/>
-            <p class="social-text">Or Sign in with social platforms</p>
+            <!-- <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon">
                 <i class="fab fa-facebook-f"></i>
@@ -174,7 +174,7 @@ if(isset($_POST['login'])){
               <a href="#" class="social-icon">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-            </div>
+            </div> -->
           </form>
           <form action="bariwala_auth.php" class="sign-up-form" method="post">
             <h2 class="title">Bariwala Sign up</h2>
@@ -199,8 +199,8 @@ if(isset($_POST['login'])){
               <input type="password" placeholder="Confirm Password" name="cpwd" required/>
             </div>
             <input type="submit" class="btn" value="Sign up" name="register"/>
-            <p class="social-text">Or Sign up with social platforms</p>
-            <div class="social-media">
+            <!-- <p class="social-text">Or Sign up with social platforms</p> -->
+            <!-- <div class="social-media">
               <a href="#" class="social-icon">
                 <i class="fab fa-facebook-f"></i>
               </a>
@@ -213,7 +213,7 @@ if(isset($_POST['login'])){
               <a href="#" class="social-icon">
                 <i class="fab fa-linkedin-in"></i>
               </a>
-            </div>
+            </div> -->
           </form>
         </div>
       </div>

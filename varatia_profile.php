@@ -135,16 +135,7 @@
                                                 <h6 class="text-muted f-w-400"><?php showNID() ?></h6>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <!-- <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Gender</p>
-                                                <h6 class="text-muted f-w-400">Male</h6>
-                                            </div> -->
-                                            <!-- <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">NID</p>
-                                                <h6 class="text-muted f-w-400">1212121212</h6>
-                                            </div> -->
-                                        </div>
+
                                         <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Update Profile</h6>
                                         <div class="row">
                                             <form action="varatia_profile.php" class="m-2 p-3 border border-warning" method="POST" enctype="multipart/form-data">
@@ -160,11 +151,7 @@
 
                                             </form> 
                                         </div>
-                                        <ul class="social-link list-unstyled m-t-40 m-b-10">
-                                            <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
-                                            <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="instagram" data-abc="true"><i class="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true"></i></a></li>
-                                        </ul>
+                                       
                                     </div>
                                 </div>
                             </div>

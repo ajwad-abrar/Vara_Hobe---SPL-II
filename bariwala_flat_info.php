@@ -1,6 +1,43 @@
 <?php
 session_start();
 
+
+// Profile pic part starts
+
+$flag = 0;
+
+include('bariwala_photo.php');
+
+function getImagePath(){
+
+    $con = mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+    $email = $_SESSION['email'];
+
+    $reg = "select img_path from bariwala where email= '$email'";
+
+    $result = mysqli_query($con, $reg);
+
+    while($row = mysqli_fetch_assoc($result)){
+
+        if($row['img_path'] == ""){
+            return "bariwala_profile_picture/bariwala_default.jpg";
+        }
+        
+        return "{$row['img_path']}";
+    }
+
+}
+
+$imagePath = getImagePath();
+
+
+
+// Profile pic part ends
+
+
+
 $con = mysqli_connect('localhost', 'root', '190042106', 'vara_hobe');
 
 if (!$con) {
@@ -53,7 +90,7 @@ mysqli_free_result($result);
         </div>
 
         <div class="header__img">
-            <img src="img/demo.jpg" alt="">
+            <img src="<?php echo $imagePath ?>" alt="">
         </div>
     </header>
 
