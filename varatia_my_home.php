@@ -31,49 +31,55 @@
 
 
 
-    $con =mysqli_connect('localhost', 'root','190042106');
+    $con = mysqli_connect('localhost', 'root','190042106');
 
-mysqli_select_db($con, 'vara_hobe');
+    mysqli_select_db($con, 'vara_hobe');
 
     
      $email=$_SESSION['email'];
 
      $sql3= "select nid from varatia where email='$email'";
-     $varatia_nid_query= mysqli_query($con,$sql3);
+     $varatia_nid_query = mysqli_query($con, $sql3);
      
-       while($row2=mysqli_fetch_assoc($varatia_nid_query)){
-         $varatia_nid = $row2['nid'];
- 
-       }
+    while($row2 = mysqli_fetch_assoc($varatia_nid_query)){
+        $varatia_nid = $row2['nid'];
+    }
  
         
-       $varatia_request= "select * from varatia_request_flat where varatia_nid='$varatia_nid'";
-       $varatia_request_query= mysqli_query($con,$varatia_request);
+    $varatia_request = "select * from varatia_request_flat where varatia_nid='$varatia_nid'";
+    $varatia_request_query = mysqli_query($con, $varatia_request);
 
-       while($row3=mysqli_fetch_assoc($varatia_request_query)){
-           $varatia_request_approved= $row3['approved'];
-       }
+    while($row3 = mysqli_fetch_assoc($varatia_request_query)){
+        global $varatia_request_approved, $flat_id;
+        $varatia_request_approved = $row3['approved'];
+        $flat_id = $row3['flat_id'];
+    }
 
-       if($varatia_request_approved= "No"){
+    if($varatia_request_approved == 'Yes'){
+        echo "";
+    }
 
-           echo "Your request is pending";
-           echo "hiii";
-       }
+    else{
+        echo "Your request for Flat ID: $flat_id is pending";
+    }
+    
+    $flat_sql = "SELECT * FROM flats WHERE id = $flat_id";
+    $flat_sql_query = mysqli_query($con, $flat_sql);
 
-       else {
-
-              echo "byee";
-            $flat_id = $row3['flat_id'];
-            echo $flat_id;
-       }
-
-     
-
-
-
-
-
-	
+    while($row = mysqli_fetch_assoc($flat_sql_query)){
+        global $city, $size, $location, $beds, $baths, $address, $floor, $building, $advance_payment, $additional_facilities;
+        $city = $row['city'];
+        $size = $row['size'];
+        $location = $row['location'];
+        $block = $row['block'];
+        $beds = $row['bedroom'];
+        $baths = $row['bathroom'];
+        $address = $row['address'];
+        $floor = $row['floor'];
+        $building = $row['building_no'];
+        $advance_payment = $row['advance_payment'];
+        $additional_facilities = $row['additional_facilities'];
+    }
 
 ?>
 
@@ -153,76 +159,67 @@ mysqli_select_db($con, 'vara_hobe');
        
 
 
+        <?php if(($varatia_request_approved == 'Yes')): ?>
+        
+            <h1 class="text-center">Flat Details</h1>  
 
-        <!-- <h1 class="text-center">Flat Details</h1>  
+            <img class="center" src="img/home.jpg" alt="" width="500px" height="350px">
 
-        <img class="center" src="img/home.jpg" alt="" width="500px" height="350px"> -->
+            <div class="container mt-3">
+                <h2 class="text-center">Here are the details of the flat</h2>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Price</th>
+                        <th>24000/- BDT</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Size</td>
+                        <td><?php echo $size; ?> sqft</td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td><?php echo $city; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td><?php echo $location; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Sector/ Block</td>
+                        <td><?php echo $address; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Beds</td>
+                        <td><?php echo $beds; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Baths</td>
+                        <td><?php echo $baths; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Floor</td>
+                        <td><?php echo $floor; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Building No</td>
+                        <td><?php echo $building; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Advance Payment(Month)</td>
+                        <td><?php echo $advance_payment ?></td>
+                    </tr>
+                    <tr>
+                        <td>Additional Facilities</td> 
+                        <td><?php echo $additional_facilities ?></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <!-- <div class="container mt-3">
-            <h2 class="text-center">Here are the details of the flat</h2>
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>Price</th>
-                    <th>24000/- BDT</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>City</td>
-                    <td>Dhaka</td>
-                </tr>
-                <tr>
-                    <td>Location</td>
-                    <td>Uttara</td>
-                </tr>
-                <tr>
-                    <td>Sector</td>
-                    <td>4</td>
-                </tr>
-                <tr>
-                    <td>Beds</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>Baths</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>Direction Facing</td>
-                    <td>South</td>
-                </tr>
-                <tr>
-                    <td>Floor</td>
-                    <td>10th</td>
-                </tr>
-                <tr>
-                    <td>Parking</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Gas Connection</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Generator</td>
-                    <td>No</td>
-                </tr>
-                <tr>
-                    <td>Lift</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>CCTV</td>
-                    <td>No</td>
-                </tr>
-                <tr>
-                    <td>Fire Protection</td>
-                    <td>No</td>
-                </tr>
-                </tbody>
-            </table>
-        </div> -->
+        <?php endif; ?>
 
 
     
