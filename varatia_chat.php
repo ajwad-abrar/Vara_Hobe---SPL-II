@@ -121,7 +121,7 @@
 
 
 
-        <h2>Chat window:</h2>
+        <!-- <h2>Chat window:</h2>
         
         <button class="open-button" onclick="openForm()">Chat</button>
 
@@ -145,7 +145,30 @@
         function closeForm() {
         document.getElementById("myForm").style.display = "none";
         }
-        </script>
+        </script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Oeshy eikhan theke likhbi -->
+
+
+
+
+
+
+
+        
         
         
         <!--=====  JS =====-->

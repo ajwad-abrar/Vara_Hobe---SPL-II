@@ -151,7 +151,7 @@ mysqli_free_result($result);
             <div class="col">
 
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="<?php echo $imagePath ?>" alt="Card image cap">
+                    <img class="card-img-top" src="img/demo.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($request['request_id']); ?> ,<?php echo htmlspecialchars($request['request_time']); ?> Varatia Info: </h5>
                     </div>

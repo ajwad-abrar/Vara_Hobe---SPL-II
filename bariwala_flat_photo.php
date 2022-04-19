@@ -10,23 +10,23 @@
 	/*--- we created a variables to display the error message on design page ------*/
 	$error = "";
 
-	if (isset($_POST["update_profile"]) == "up_profile") {
+	if (isset($_POST["submit"])) {
 
-		$file_tmp = $_FILES["profile_pic"]["tmp_name"];
-		$file_name = $_FILES["profile_pic"]["name"];
+		$file_tmp = $_FILES["flat_pic"]["tmp_name"];
+		$file_name = $_FILES["flat_pic"]["name"];
         $email = $_SESSION['email'];
 
 		//image directory where actual image will be store
-		$file_path = "profile_picture/".$file_name;	
+		$file_path = "flat_picture/".$file_name;	
 
 	/*-------- now insertion of image section has start -------------*/
 
 
         $result = mysqli_connect($host, $uname, $pwd) or die("Connection error: ". mysqli_error());
         mysqli_select_db($result, $db_name) or die("Could not Connect to Database: ". mysqli_error());
-        mysqli_query($result,"UPDATE admin SET img_path = '$file_path' WHERE email = '$email'") or die ("image not inserted". mysqli_error());
+        mysqli_query($result,"INSERT INTO flats(img_path) VALUES('$file_path')") or die ("image not inserted". mysqli_error());
         move_uploaded_file($file_tmp, $file_path);
-        $error = "<p align=center>File ".$_FILES["profile_pic"]["name"].""."<br />Image saved into Table.";
+        $error = "<p align=center>File ".$_FILES["flat_pic"]["name"].""."<br />Image saved into Table.";
         
     }
 	
