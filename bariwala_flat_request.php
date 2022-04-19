@@ -194,7 +194,7 @@ if(isset($_POST['reject'])){
                 </div>
             </div>
 
-            <a href="#" class="nav__link">
+            <a href="bariwala_logout.php" class="nav__link">
                 <i class='bx bx-log-out nav__icon'></i>
                 <span class="nav__name">Log Out</span>
             </a>
