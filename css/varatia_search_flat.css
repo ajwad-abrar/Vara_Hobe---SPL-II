@@ -38,3 +38,19 @@ select{
 .col h4{
     font-family: 'Poppins', sans-serif;
 }
+
+
+#card-heading{
+    text-align: center;
+}
+
+.card{
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.details{
+    text-align: center;
+    width: 760px;
+}

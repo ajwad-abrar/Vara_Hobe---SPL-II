@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
     $price= mysqli_real_escape_string($con,$_POST['price']);
     
    
-    $sql=  "select * from flats where city='$city' and location='$location' and flat_status= 'Empty' or flat_status= 'Requested' order by price asc";
+    $sql =  "select * from flats where city='$city' and location='$location' and flat_status <>'Filled' order by price asc";
 
 
     $check_flat=mysqli_query($con,$sql );
@@ -283,58 +283,38 @@ if(isset($_POST['request_flat'])){
 
      <br><br><br><br>
 
-     <?php foreach ((array) $requests as $request):  ?>
+    <?php foreach ((array) $requests as $request):  ?>
 
-        
-     
-     <div class="card">
-                    <img class="card-img-top" src="img/home.jpg" alt="Card image cap" height="150">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php  echo htmlspecialchars($request['block']);?>, <?php  echo htmlspecialchars($request['location']);?>, <?php  echo htmlspecialchars($request['city']);?>  </h5>
-                        <p class="card-text"> BDT <?php  echo htmlspecialchars($request['price']);?>/ MONTH </p>
-                    </div>
-                    
-                    <p class="p-2">
-                       <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" data-bs-target="#collapseExample">
-                                  Flat Details
-                       </a>
-                       &nbsp;
-                       <form action="varatia_search_home.php" method="post" class="m-2">
-                       <button type="submit" class="btn btn-primary" name="request_flat" value=" <?php echo htmlspecialchars($request['id']);?> " >Request</button>
-                        </form>
-                     </p>
-                 <div class="collapse" id="collapseExample">
-                   <div class="card">
-                      <ul class="list-group list-group-flush">
+        <div class="card">
+            <img class="card-img-top" src="<?php  echo htmlspecialchars($request['img_path']);?>" alt="Card image cap" >
+            <div class="card-body">
+                <h5 class="card-title" id="card-heading"><?php  echo htmlspecialchars($request['block']);?>, <?php  echo htmlspecialchars($request['location']);?>, <?php  echo htmlspecialchars($request['city']);?>  </h5>
+                <p class="card-text"> <b> BDT <?php  echo htmlspecialchars($request['price']);?>/ MONTH </b></p>
+            </div>
+                
+                <p class="p-2">
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" data-bs-target="#collapseExample">
+                               Click to know more about the flat 
+                    </a>
+                    &nbsp;
+                    <form action="varatia_search_home.php" method="post" class="m-2">
+                    <button type="submit" class="btn btn-success" name="request_flat" value=" <?php echo htmlspecialchars($request['id']);?> " >  Request  </button>
+                    </form>
+                </p>
+                <div class="collapse" id="collapseExample">
+                <div class="card details">
+                    <ul class="list-group list-group-flush">
                         <li class="list-group-item">Address: <?php  echo htmlspecialchars($request['address']);?>,  Building No. <?php  echo htmlspecialchars($request['building_no']);?>,  Level: <?php  echo htmlspecialchars($request['floor']);?></li> 
                         <li class="list-group-item"><?php  echo htmlspecialchars($request['size']);?> SQFT</li>
                         <li class="list-group-item"><?php  echo htmlspecialchars($request['bedroom']);?> BEDROOM</li>
                         <li class="list-group-item"><?php  echo htmlspecialchars($request['bathroom']);?> BATHROOM</li>
                         <li class="list-group-item">Additional Facilities: <?php  echo htmlspecialchars($request['additional_facilities']);?></li>
-
-                       </ul>
-                    </div>
+                    </ul>
                 </div>
-                    
-              
-                   
-                </div>
-                
-                 
-            </div>
+            </div>            
+        </div>          <br><br><br><br>
 
-            <br><br>
-
-            <?php endforeach; ?> 
-
-           
-
-
-
-
-
-
-
+    <?php endforeach; ?> 
           
 
             <br><br>
