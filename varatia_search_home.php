@@ -29,8 +29,101 @@
 
 	$imagePath = getImagePath();
 	
+session_start();
+
+
+$con =mysqli_connect('localhost', 'root','190042106');
+
+mysqli_select_db($con, 'vara_hobe');
+
+$email=$_SESSION['email'];
+
+
+global $sql, $check_flat,$requests, $varatia_nid;
+
+
+if(isset($_POST['submit'])){
+
+    $city=mysqli_real_escape_string($con,$_POST['city']);
+    $location=mysqli_real_escape_string($con,$_POST['location']);
+    $sector=mysqli_real_escape_string($con,$_POST['sector']);
+    $bed= mysqli_real_escape_string($con,$_POST['bed']);
+    $bath= mysqli_real_escape_string($con,$_POST['bath']);
+    $price= mysqli_real_escape_string($con,$_POST['price']);
+    
+   
+    $sql=  "select * from flats where city='$city' and location='$location' and flat_status= 'Empty' or flat_status= 'Requested' order by price asc";
+
+
+    $check_flat=mysqli_query($con,$sql );
+     $requests= mysqli_fetch_all($check_flat,MYSQLI_ASSOC);
+    
+     mysqli_free_result($check_flat);
+      
+
+        // global $requests;   
+
+}
+
+
+
+
+if(isset($_POST['request_flat'])){
+
+    //  $sql5=  "select id from flats where flat_status= 'Empty'";
+    //  $check_flat1=mysqli_query($con,$sql5 );
+    //  $id_of_flat= mysqli_fetch_all($check_flat1,MYSQLI_ASSOC);
+    //  mysqli_free_result($check_flat1);
+
+
+     $requested_flat_id= $_POST['request_flat'];
+    
+    $sql2=  "UPDATE flats  SET flat_status = 'Requested' WHERE id='$requested_flat_id'";
+    $flat_request_query= mysqli_query($con,$sql2);
+
+   if($flat_request_query){
+       echo "success";
+   }
+
+   else{
+       echo "error";
+   }
+
+
+    
+    $sql3= "select nid from varatia where email='$email'";
+    $varatia_nid_query= mysqli_query($con,$sql3);
+    
+      while($row2=mysqli_fetch_assoc($varatia_nid_query)){
+        $varatia_nid = $row2['nid'];
+
+      }
+    
+
+    //  $varatia_nid =$_SESSION['nid'];
+
+
+
+    $sql4= "insert into varatia_request_flat (varatia_nid, flat_id) values($varatia_nid,  $requested_flat_id)" ;
+    $insert_request= mysqli_query($con, $sql4);
+
+
+        if($insert_request){
+            echo $varatia_nid;
+            echo "request inserted";
+        }
+
+        else{
+    
+            echo "not inserted";
+        }
+    
+    }
+
+
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +136,8 @@
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
         <!-- ===== CSS ===== -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+        
         <link rel="stylesheet" href="css/varatia_style.css">
         <link rel="stylesheet" href="css/varatia_search_flat.css">
 
@@ -112,7 +207,7 @@
         </div>
 
 
-        <form action="" method="post">
+        <form action="varatia_search_home.php" method="post">
 
             <div class="container text-center">
 
@@ -121,7 +216,7 @@
                     <div class="col">
                         <h4 class="text-center">City</h4>  
 
-                        <select class="form-select form-select-md mb-3" name="city" id="city">
+                        <select class="form-select form-select-md mb-3" name="city" id="city" required>
                             <option value="" selected="selected">Select city</option>
                         </select>
                     </div>
@@ -129,7 +224,7 @@
                     <div class="col">
 
                         <h4 class="text-center">Location</h4>
-                        <select class="form-select form-select-md mb-3"  name="location" id="location">
+                        <select class="form-select form-select-md mb-3"  name="location" id="location" required>
                             <option value="" selected="selected">Please select city first</option>
                         </select>
 
@@ -166,7 +261,7 @@
                     </div>
                     <div class="col">
                         <h4 class="text-center">Price Range</h4>
-                        <select class="form-select form-select-md mb-3"  id="bath" name="bath">
+                        <select class="form-select form-select-md mb-3"  id="price" name="price">
                             <option value="1">0 - 5000</option>
                             <option value="2">5001 - 10000</option>
                             <option value="3">10001 - 15000</option>
@@ -187,14 +282,69 @@
 
         </form>
 
+     <br><br><br><br>
+
+     <?php foreach ((array) $requests as $request):  ?>
+
+        
+     
+     <div class="card">
+                    <img class="card-img-top" src="img/home.jpg" alt="Card image cap" height="150">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php  echo htmlspecialchars($request['block']);?>, <?php  echo htmlspecialchars($request['location']);?>, <?php  echo htmlspecialchars($request['city']);?>  </h5>
+                        <p class="card-text"> BDT <?php  echo htmlspecialchars($request['price']);?>/ MONTH </p>
+                    </div>
+                    
+                    <p class="p-2">
+                       <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" data-bs-target="#collapseExample">
+                                  Flat Details
+                       </a>
+                       &nbsp;
+                       <form action="varatia_search_home.php" method="post" class="m-2">
+                       <button type="submit" class="btn btn-primary" name="request_flat" value=" <?php echo htmlspecialchars($request['id']);?> " >Request</button>
+                        </form>
+                     </p>
+                 <div class="collapse" id="collapseExample">
+                   <div class="card">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Address: <?php  echo htmlspecialchars($request['address']);?>,  Building No. <?php  echo htmlspecialchars($request['building_no']);?>,  Level: <?php  echo htmlspecialchars($request['floor']);?></li> 
+                        <li class="list-group-item"><?php  echo htmlspecialchars($request['size']);?> SQFT</li>
+                        <li class="list-group-item"><?php  echo htmlspecialchars($request['bedroom']);?> BEDROOM</li>
+                        <li class="list-group-item"><?php  echo htmlspecialchars($request['bathroom']);?> BATHROOM</li>
+                        <li class="list-group-item">Additional Facilities: <?php  echo htmlspecialchars($request['additional_facilities']);?></li>
+
+                       </ul>
+                    </div>
+                </div>
+                    
+              
+                   
+                </div>
+                
+                 
+            </div>
+
+            <br><br>
+
+            <?php endforeach; ?> 
+
+           
 
 
 
+
+
+
+
+          
+
+            <br><br>
 
         <!--=====  JS =====-->
         <script src="js/varatia_js.js"></script>
         <script src="js/city-list.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" ></script>
+       
 
     </body>
 </html>
