@@ -33,20 +33,19 @@ session_start();
     $imagePath = getImagePath();
 
 
-
 // Profile pic part ends
 
-$con =mysqli_connect('localhost', 'root','190042106');
+    $con =mysqli_connect('localhost', 'root', '190042106');
 
-mysqli_select_db($con, 'vara_hobe');
-$email = $_SESSION['email'];
-$reg = " select nid from bariwala where email= '$email'";
-$result = mysqli_query($con, $reg);
+    mysqli_select_db($con, 'vara_hobe');
+    $email = $_SESSION['email'];
+    $reg = " select nid from bariwala where email= '$email'";
+    $result = mysqli_query($con, $reg);
 
 
-while($row = mysqli_fetch_assoc($result)){
-    $bariwala_nid = $row['nid'];
-}
+    while($row = mysqli_fetch_assoc($result)){
+        $bariwala_nid = $row['nid'];
+    }
 
 //echo $result;
 
@@ -71,6 +70,13 @@ if(isset($_POST['submit'])){
     // $cctv =mysqli_real_escape_string($con, $_POST['cctv']);
     // $fire_protection =mysqli_real_escape_string($con, $_POST['fire']);
 
+    $file_tmp = $_FILES["flat_pic"]["tmp_name"];
+    $file_name = $_FILES["flat_pic"]["name"];
+
+    //image directory where actual image will be store
+    $file_path = "flat_picture/".$file_name;	
+	
+
     $additional_facilities=$_POST['add'];
     $chk ="";
 
@@ -78,27 +84,25 @@ if(isset($_POST['submit'])){
          $chk .= $chk1." ";
      }
 
-
-    
-  
   
         //   $sql="INSERT INTO `flats` (`id`, `city`, `location`, `block`, `address`, `building_no`, `floor`, `apartment_no`,`bedroom`,`bathroom`,`price`,`size`,`advance_payment`,`parking`,`gas`,`generator`,`lift`,`cctv`,`fire_protection`)
         //   VALUES (NULL, '$city','$location', '$block', '$address', '$building_no', '$floor', '$apartment_no','$bed','$bath','$price','$size','$advance_payment','yes','yes','yes','yes','yes','yes');";
   
-        $sql="INSERT INTO `flats` (`id`, `bariwala_nid`, `city`, `location`, `block`, `address`, `building_no`, `floor`, `apartment_no`,`bedroom`,`bathroom`,`price`,`size`,`advance_payment`,`additional_facilities`)
-        VALUES (NULL, '$bariwala_nid', '$city',  '$location', '$block', '$address', '$building_no', '$floor', '$apartment_no','$bed','$bath','$price','$size','$advance_payment','$chk');";
-
+    $sql="INSERT INTO `flats` (`id`, `bariwala_nid`, `img_path`, `city`, `location`, `block`, `address`, `building_no`, `floor`, `apartment_no`,`bedroom`,`bathroom`,`price`,`size`,`advance_payment`,`additional_facilities`)
+    VALUES (NULL, '$bariwala_nid', '$file_path', '$city',  '$location', '$block', '$address', '$building_no', '$floor', '$apartment_no','$bed','$bath','$price','$size','$advance_payment','$chk');";
 
   
-            if(mysqli_query($con, $sql)){
-              
-              header('Location: bariwala_add_flat.php');
-            }
-            else{
-              echo'query error'.mysqli_error($con);
-            }
+    if(mysqli_query($con, $sql)){
+        
+        header('Location: bariwala_add_flat.php');
+    }
+    else{
+        echo'query error'.mysqli_error($con);
+    }
+
+    move_uploaded_file($file_tmp, $file_path);
           
-  }
+}
        
 
 ?>
@@ -168,7 +172,7 @@ if(isset($_POST['submit'])){
                     </div>
                 </div>
 
-                <a href="#" class="nav__link">
+                <a href="bariwala_logout.php" class="nav__link">
                     <i class='bx bx-log-out nav__icon' ></i>
                     <span class="nav__name">Log Out</span>
                 </a>
@@ -182,7 +186,7 @@ if(isset($_POST['submit'])){
         </div>
 
 
-        <form action="bariwala_add_flat.php" method="post">
+        <form action="bariwala_add_flat.php" method="post" enctype="multipart/form-data">
 
             <div class="container text-center">
 
@@ -191,7 +195,7 @@ if(isset($_POST['submit'])){
                     <div class="col">
                         <h4 class="text-center">City</h4>  
 
-                        <select class="form-select form-select-md mb-3" name="city" id="city">
+                        <select class="form-select form-select-md mb-3" name="city" id="city" required>
                             <option value="" selected="selected">Select city</option>
                         </select>
                     </div>
@@ -199,7 +203,7 @@ if(isset($_POST['submit'])){
                     <div class="col">
 
                         <h4 class="text-center">Location</h4>
-                        <select class="form-select form-select-md mb-3"  name="location" id="location">
+                        <select class="form-select form-select-md mb-3"  name="location" id="location" required>
                             <option value="" selected="selected">Please select city first</option>
                         </select>
 
@@ -207,7 +211,7 @@ if(isset($_POST['submit'])){
 
                     <div class="col">
                         <h4 class="text-center">Sector/ Block</h4>
-                        <select class="form-select form-select-md mb-3"  name="block" id="sector">
+                        <select class="form-select form-select-md mb-3"  name="block" id="sector" required>
                             <option value="" selected="selected">Please select location first</option>
                         </select>
                     </div>
@@ -220,19 +224,19 @@ if(isset($_POST['submit'])){
 
                     <div class="col">
                         <h4 class="text-center">Address</h4>
-                        <input class="form-control" type="text" id="address" name="address">
+                        <input class="form-control" type="text" id="address" name="address" required>
                     </div>
 
                     <div class="col">
 
                         <h4 class="text-center">Building No</h4>
-                        <input class="form-control" type="text" id="building" name="building">
+                        <input class="form-control" type="text" id="building" name="building" required>
 
                     </div>
 
                     <div class="col">
                         <h4 class="text-center">Floor</h4>
-                        <select class="form-select form-select-md mb-3"  id="floor" name="floor">
+                        <select class="form-select form-select-md mb-3"  id="floor" name="floor" required>
                             <option value="1">1st</option>
                             <option value="2">2nd</option>
                             <option value="3">3rd</option>
@@ -258,12 +262,12 @@ if(isset($_POST['submit'])){
 
                     <div class="col">
                             <h4 class="text-center">Apartment No</h4>
-                            <input class="form-control" type="text" id="apartment" name="apartment">
+                            <input class="form-control" type="text" id="apartment" name="apartment" required>
                     </div>
 
                     <div class="col">
                         <h4 class="text-center">Beds</h4>
-                        <select class="form-select form-select-md mb-3"  id="bed" name="bed">
+                        <select class="form-select form-select-md mb-3"  id="bed" name="bed" required>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -273,7 +277,7 @@ if(isset($_POST['submit'])){
                     </div>
                     <div class="col">
                         <h4 class="text-center">Baths</h4>
-                        <select class="form-select form-select-md mb-3"  id="bath" name="bath">
+                        <select class="form-select form-select-md mb-3"  id="bath" name="bath" required>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -287,16 +291,16 @@ if(isset($_POST['submit'])){
 
                     <div class="col">
                         <h4 class="text-center">Price</h4>
-                        <input class="form-control" type="number" id="price" name="price" min="1" max="25000">
+                        <input class="form-control" type="number" id="price" name="price" min="1" max="25000" required>
                     </div>
 
                     <div class="col">
                         <h4 class="text-center">Size(sqft)</h4>
-                        <input class="form-control" type="number" id="size" name="size" min="100" max="4000">
+                        <input class="form-control" type="number" id="size" name="size" min="100" max="4000" required>
                     </div>
                     <div class="col">
                         <h4 class="text-center">Advance Payment(Month)</h4>
-                        <select class="form-select form-select-md mb-3"  id="advance" name="advance">
+                        <select class="form-select form-select-md mb-3"  id="advance" name="advance" required>
                             <option value="no-advance">No Advance</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -305,6 +309,17 @@ if(isset($_POST['submit'])){
                     </div>
 
                 </div>
+
+
+                <div class="row" id="part-3">
+
+                    <label class="form-label label-style" for="customFile"> <h4> <b> Upload Your Flat Picture </b> </h4> </label> <br>
+                    <input type="file" accept="image/*" name="flat_pic" class="form-control" id="customFile" required> <br>
+
+                </div>
+
+
+
 
 
                 <h1 class="text-center" id="additional_info" > Additional Facilities: </h1>
@@ -348,7 +363,7 @@ if(isset($_POST['submit'])){
 
 
             <div class="text-center mt-5">
-				<button onclick="requestSubmission()"  type="submit" name="submit" class="btn btn-success btn-lg" id="submit_button">Submit</button>
+				<button onclick="requestSubmission()"  type="submit" name="submit" value="submit_flat_info" class="btn btn-success btn-lg" id="submit_button">Submit</button>
 			</div>
             
 
