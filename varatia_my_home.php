@@ -28,6 +28,51 @@
 	}
 
 	$imagePath = getImagePath();
+
+
+
+    $con =mysqli_connect('localhost', 'root','190042106');
+
+mysqli_select_db($con, 'vara_hobe');
+
+    
+     $email=$_SESSION['email'];
+
+     $sql3= "select nid from varatia where email='$email'";
+     $varatia_nid_query= mysqli_query($con,$sql3);
+     
+       while($row2=mysqli_fetch_assoc($varatia_nid_query)){
+         $varatia_nid = $row2['nid'];
+ 
+       }
+ 
+        
+       $varatia_request= "select * from varatia_request_flat where varatia_nid='$varatia_nid'";
+       $varatia_request_query= mysqli_query($con,$varatia_request);
+
+       while($row3=mysqli_fetch_assoc($varatia_request_query)){
+           $varatia_request_approved= $row3['approved'];
+       }
+
+       if($varatia_request_approved= "No"){
+
+           echo "Your request is pending";
+           echo "hiii";
+       }
+
+       else {
+
+              echo "byee";
+            $flat_id = $row3['flat_id'];
+            echo $flat_id;
+       }
+
+     
+
+
+
+
+
 	
 
 ?>
@@ -109,11 +154,11 @@
 
 
 
-        <h1 class="text-center">Flat Details</h1>  
+        <!-- <h1 class="text-center">Flat Details</h1>  
 
-        <img class="center" src="img/home.jpg" alt="" width="500px" height="350px">
+        <img class="center" src="img/home.jpg" alt="" width="500px" height="350px"> -->
 
-        <div class="container mt-3">
+        <!-- <div class="container mt-3">
             <h2 class="text-center">Here are the details of the flat</h2>
             <table class="table table-hover">
                 <thead>
@@ -177,7 +222,7 @@
                 </tr>
                 </tbody>
             </table>
-        </div>
+        </div> -->
 
 
     

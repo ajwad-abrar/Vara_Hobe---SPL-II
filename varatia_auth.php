@@ -3,10 +3,10 @@
 // sign up
 session_start();
 
-if(isset($_SESSION['uid'])){
- header("Location: varatia_home.php");
+// if(isset($_SESSION['uid'])){
+//  header("Location: varatia_home.php");
 
-}
+// }
 
 // use PHPMailer\PHPMailer\PHPMailer;
 //     use PHPMailer\PHPMailer\SMTP;

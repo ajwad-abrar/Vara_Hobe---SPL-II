@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
     $price= mysqli_real_escape_string($con,$_POST['price']);
     
    
-    $sql =  "select * from flats where city='$city' and location='$location' and flat_status <>'Filled' order by price asc";
+    $sql=  "select * from flats where city='$city' and location='$location' and flat_status <>'Filled' order by price asc";
 
 
     $check_flat=mysqli_query($con,$sql );
@@ -68,12 +68,6 @@ if(isset($_POST['submit'])){
 
 
 if(isset($_POST['request_flat'])){
-
-    //  $sql5=  "select id from flats where flat_status= 'Empty'";
-    //  $check_flat1=mysqli_query($con,$sql5 );
-    //  $id_of_flat= mysqli_fetch_all($check_flat1,MYSQLI_ASSOC);
-    //  mysqli_free_result($check_flat1);
-
 
      $requested_flat_id= $_POST['request_flat'];
     
@@ -97,9 +91,7 @@ if(isset($_POST['request_flat'])){
         $varatia_nid = $row2['nid'];
 
       }
-    
 
-    //  $varatia_nid =$_SESSION['nid'];
 
 
 

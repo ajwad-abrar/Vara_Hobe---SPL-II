@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+
+
+global $bariwala_nid;
+
 // Profile pic part starts
 
 $flag = 0;
@@ -47,21 +51,20 @@ if (!$con) {
 
 $email = $_SESSION['email'];
 $reg = " select nid from bariwala where email= '$email'";
-
 $result1 = mysqli_query($con, $reg);
-
-
 while($row = mysqli_fetch_assoc($result1)){
     $bariwala_nid = $row['nid'];
 }
 
-$sql = "SELECT * FROM `varatia_request_flat` where flat_id = 12";
 
-$result = mysqli_query($con, $sql);
 
-$requests = mysqli_fetch_all($result, MYSQLI_ASSOC);
+ $sql = "select * from varatia_request_flat inner join flats where varatia_request_flat.flat_id= flats.id and flats.bariwala_nid = '$bariwala_nid' ";
+ $result = mysqli_query($con, $sql);
 
-mysqli_free_result($result);
+ $requests = mysqli_fetch_all($result, MYSQLI_ASSOC);
+ mysqli_free_result($result);
+
+
 
 ?>
 
@@ -148,24 +151,30 @@ mysqli_free_result($result);
 
         <?php foreach ($requests as $request) :  ?>
 
-            <div class="col">
+            <!-- <div class="col">
 
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="img/demo.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($request['request_id']); ?> ,<?php echo htmlspecialchars($request['request_time']); ?> Varatia Info: </h5>
                     </div>
-                    <!-- <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush">
                         <li class="list-group-item"><?php echo htmlspecialchars($request['size']); ?> Varatia ID: </li>
                         <li class="list-group-item"><?php echo htmlspecialchars($request['bedroom']); ?>Varatia Name: </li>
                         <li class="list-group-item"><?php echo htmlspecialchars($request['bathroom']); ?> Request Time: </li>
-                    </ul> -->
+                    </ul>
                     <div class="card-body">
                         <button type="button" class="btn btn-success">Accept</button>
                         <button type="button" class="btn btn-danger">Reject</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+         <div>
+
+            <?php echo htmlspecialchars($request['varatia_nid']); ?>  is requesting for   <?php echo htmlspecialchars($request['flat_id']); ?>
+         </div>
+
 
         <?php endforeach; ?>
 
