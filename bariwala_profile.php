@@ -58,6 +58,11 @@
                             <span class="nav__name">My Flat</span>
                         </a>
 
+                        <a href="bariwala_flat_request.php" class="nav__link">
+                            <i class='bx bxs-send nav__icon' ></i>
+                            <span class="nav__name">Request</span>
+                        </a>
+
                     </div>
                 </div>
 

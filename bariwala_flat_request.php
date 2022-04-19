@@ -1,5 +1,5 @@
 <?php
-session_start();
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -14,9 +14,9 @@ session_start();
 
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="css/bariwala_style.css">
-        <link rel="stylesheet" href="css/bariwala_home_style.css">
+        <link rel="stylesheet" href="css/bariwala_profile_style.css">
 
-        <title>Bariwala Home</title>
+        <title>Flat Request</title>
     </head>
     <body id="body-pd">
         <header class="header" id="header">
@@ -25,7 +25,7 @@ session_start();
             </div>
 
             <div class="header__img">
-                <img src="img/demo.jpg" alt="">
+                <img src="img/bariwala_profile_pic.png" alt="">
             </div>
         </header>
 
@@ -38,7 +38,7 @@ session_start();
                     </a>
 
                     <div class="nav__list">
-                        <a href="bariwala_home.php" class="nav__link active">
+                        <a href="bariwala_home.php" class="nav__link">
                         <i class='bx bxs-home nav__icon' ></i>
                             <span class="nav__name">Home</span>
                         </a>
@@ -58,16 +58,15 @@ session_start();
                             <span class="nav__name">My Flat</span>
                         </a>
 
-                        <a href="bariwala_flat_request.php" class="nav__link">
+                        <a href="bariwala_flat_request.php" class="nav__link active">
                             <i class='bx bxs-send nav__icon' ></i>
                             <span class="nav__name">Request</span>
                         </a>
 
-
                     </div>
                 </div>
 
-                <a href="bariwala_logout.php" class="nav__link">
+                <a href="#" class="nav__link">
                     <i class='bx bx-log-out nav__icon' ></i>
                     <span class="nav__name">Log Out</span>
                 </a>
@@ -76,49 +75,12 @@ session_start();
 
        
 
-
-
-        <?php
-
-            function showName(){
-
-                $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
-
-
-                $email = $_SESSION['email'];
-
-                $reg=" select name from bariwala where email= '$email'";
-
-
-                $result = mysqli_query($con, $reg);
-
-                // echo "<br>";
-
-                while($row = mysqli_fetch_assoc($result)){
-                    echo "{$row['name']}";
-                }
-            }
-        ?>    
+       
 
 
 
-        <div id="welcome">  
-            <h1 class="welcome_font"> 
-                <?php
-
-                    echo "Welcome Back, ";
-
-                    showName();
-
-                    echo "<br><br><br>Happy " . date("l");
-
-                ?>  
-            </h1>
-        </div>
 
 
-    
-        
         
         <!--=====  JS =====-->
         <script src="js/bariwala_js.js"></script>

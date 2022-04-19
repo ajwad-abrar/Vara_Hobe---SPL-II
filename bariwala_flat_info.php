@@ -7,8 +7,18 @@ if (!$con) {
     echo 'connection error' . mysqli_connect_error();
 }
 
-$sql = 'SELECT *
-FROM `flats`';
+$email = $_SESSION['email'];
+$reg = " select nid from bariwala where email= '$email'";
+
+$result1 = mysqli_query($con, $reg);
+
+
+while($row = mysqli_fetch_assoc($result1)){
+    $bariwala_nid = $row['nid'];
+}
+
+$sql = "SELECT *
+FROM `flats` where bariwala_nid = $bariwala_nid";
 
 $result = mysqli_query($con, $sql);
 
@@ -74,6 +84,11 @@ mysqli_free_result($result);
                     <a href="bariwala_flat_info.php" class="nav__link active">
                         <i class='bx bxs-home-heart nav__icon'></i>
                         <span class="nav__name">My Flat</span>
+                    </a>
+
+                    <a href="bariwala_flat_request.php" class="nav__link">
+                            <i class='bx bxs-send nav__icon' ></i>
+                            <span class="nav__name">Request</span>
                     </a>
 
 
