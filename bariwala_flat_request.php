@@ -49,6 +49,8 @@ if (!$con) {
     echo 'connection error' . mysqli_connect_error();
 }
 
+
+
 $email = $_SESSION['email'];
 $reg = " select nid from bariwala where email= '$email'";
 $result1 = mysqli_query($con, $reg);
@@ -58,11 +60,68 @@ while($row = mysqli_fetch_assoc($result1)){
 
 
 
- $sql = "select * from varatia_request_flat inner join flats where varatia_request_flat.flat_id= flats.id and flats.bariwala_nid = '$bariwala_nid' ";
+ $sql = "select * from varatia_request_flat inner join flats where varatia_request_flat.flat_id= flats.id and flats.bariwala_nid = '$bariwala_nid' and varatia_request_flat.approved='No'";
  $result = mysqli_query($con, $sql);
 
  $requests = mysqli_fetch_all($result, MYSQLI_ASSOC);
  mysqli_free_result($result);
+
+
+
+ if(isset($_POST['accept'])){
+
+    $accepted_request_id= $_POST['accept'];
+   
+  
+   $sql3 = "UPDATE varatia_request_flat  SET approved='Yes' WHERE request_id='$accepted_request_id'";
+   $accept_query= mysqli_query($con,$sql3);
+
+   if($accept_query){
+       echo "Success";
+   }
+   else{
+       echo "error";
+   }
+
+
+   $sql4 ="select flat_id from varatia_request_flat where request_id='$accepted_request_id' ";
+   $get_flat_id = mysqli_query($con,$sql4);
+
+   while($row4=mysqli_fetch_assoc($get_flat_id)){
+    $flat_id = $row4['flat_id'];
+  }
+
+   
+   $sql5= "UPDATE flats SET flat_status='Filled' WHERE id='$flat_id'";
+   $flat_query= mysqli_query($con, $sql5);
+
+
+}
+
+
+
+
+if(isset($_POST['reject'])){
+
+    $rejected_request_id= $_POST['reject'];
+   
+  
+   $sql6= "DELETE FROM varatia_request_flat WHERE request_id='$rejected_request_id'";
+   $reject_query= mysqli_query($con,$sql6);
+
+   if($reject_query){
+       echo "Success";
+   }
+   else{
+       echo "error";
+   }
+
+
+   
+
+
+}
+
 
 
 
@@ -151,28 +210,32 @@ while($row = mysqli_fetch_assoc($result1)){
 
         <?php foreach ($requests as $request) :  ?>
 
-            <!-- <div class="col">
+            <div class="col">
 
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="img/demo.jpg" alt="Card image cap">
+                   
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo htmlspecialchars($request['request_id']); ?> ,<?php echo htmlspecialchars($request['request_time']); ?> Varatia Info: </h5>
+                        <h5 class="card-title">Request Time:<?php echo htmlspecialchars($request['request_time']); ?></h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><?php echo htmlspecialchars($request['size']); ?> Varatia ID: </li>
-                        <li class="list-group-item"><?php echo htmlspecialchars($request['bedroom']); ?>Varatia Name: </li>
-                        <li class="list-group-item"><?php echo htmlspecialchars($request['bathroom']); ?> Request Time: </li>
+                    <li class="list-group-item"> <b> Varatia Info </b> </li>
+                        <li class="list-group-item"> <?php echo htmlspecialchars($request['varatia_nid']); ?>  is requesting for  flat <?php echo htmlspecialchars($request['flat_id']); ?> </li>
+                        
                     </ul>
+
+                  <form action="bariwala_flat_request.php" method="post">
                     <div class="card-body">
-                        <button type="button" class="btn btn-success">Accept</button>
-                        <button type="button" class="btn btn-danger">Reject</button>
+                        <button type="submit" class="btn btn-success" name="accept" value=" <?php echo htmlspecialchars($request['request_id']);?> ">Accept</button>
+                        <button type="submit" class="btn btn-danger" name="reject"  value=" <?php echo htmlspecialchars($request['request_id']);?> ">Reject</button>
                     </div>
+                   </form>
+
                 </div>
-            </div> -->
+            </div>
 
          <div>
 
-            <?php echo htmlspecialchars($request['varatia_nid']); ?>  is requesting for   <?php echo htmlspecialchars($request['flat_id']); ?>
+           
          </div>
 
 
