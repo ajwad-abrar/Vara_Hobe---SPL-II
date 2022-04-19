@@ -1,5 +1,35 @@
 <?php
-session_start();
+	session_start();
+
+	$flag = 0;
+
+	include('varatia_photo.php');
+
+	function getImagePath(){
+
+		$con = mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+		$email = $_SESSION['email'];
+
+		$reg = "select img_path from varatia where email= '$email'";
+
+		$result = mysqli_query($con, $reg);
+
+		while($row = mysqli_fetch_assoc($result)){
+
+			if($row['img_path'] == ""){
+				return "varatia_profile_picture/varatia_default.jpg";
+			}
+			
+			return "{$row['img_path']}";
+		}
+
+	}
+
+	$imagePath = getImagePath();
+	
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +55,7 @@ session_start();
             </div>
 
             <div class="header__img">
-                <img src="img/demo.jpg" alt="">
+                <img src="<?php echo $imagePath ?>" alt="">
             </div>
         </header>
 

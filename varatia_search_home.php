@@ -1,5 +1,35 @@
 <?php
-session_start();
+	session_start();
+
+	$flag = 0;
+
+	include('varatia_photo.php');
+
+	function getImagePath(){
+
+		$con = mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+		$email = $_SESSION['email'];
+
+		$reg = "select img_path from varatia where email= '$email'";
+
+		$result = mysqli_query($con, $reg);
+
+		while($row = mysqli_fetch_assoc($result)){
+
+			if($row['img_path'] == ""){
+				return "varatia_profile_picture/varatia_default.jpg";
+			}
+			
+			return "{$row['img_path']}";
+		}
+
+	}
+
+	$imagePath = getImagePath();
+	
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +57,7 @@ session_start();
             </div>
 
             <div class="header__img">
-                <img src="img/demo.jpg" alt="">
+                <img src="<?php echo $imagePath ?>" alt="">
             </div>
         </header>
 
@@ -59,23 +89,11 @@ session_start();
                             <i class='bx bxs-home-heart nav__icon' ></i>
                             <span class="nav__name">My Home</span>
                         </a>
-<!-- 
-                        <a href="varatia_review.php" class="nav__link">
-                            <i class='bx bxs-star-half nav__icon' ></i>
-                            <span class="nav__name">Review</span>
-                        </a> -->
-
 
                         <a href="varatia_chat.php" class="nav__link">
                             <i class='bx bxs-message-rounded-dots nav__icon' ></i>
                             <span class="nav__name">Chat</span>
                         </a>
-
-
-                        <!-- <a href="#" class="nav__link">
-                            <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
-                            <span class="nav__name">Analytics</span>
-                        </a>  -->
 
                     </div>
                 </div>

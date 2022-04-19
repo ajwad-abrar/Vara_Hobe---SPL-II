@@ -4,7 +4,7 @@
 
 	$flag = 0;
 
-	include('admin_photo.php');
+	include('varatia_photo.php');
 
 	function getImagePath(){
 

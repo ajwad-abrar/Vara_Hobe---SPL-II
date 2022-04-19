@@ -1,6 +1,38 @@
+<!-- Varatia PROFILE -->
 <?php
-session_start();
+	session_start();
+
+	$flag = 0;
+
+	include('varatia_photo.php');
+
+	function getImagePath(){
+
+		$con = mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+		$email = $_SESSION['email'];
+
+		$reg = "select img_path from varatia where email= '$email'";
+
+		$result = mysqli_query($con, $reg);
+
+		while($row = mysqli_fetch_assoc($result)){
+
+			if($row['img_path'] == ""){
+				return "varatia_profile_picture/varatia_default.jpg";
+			}
+			
+			return "{$row['img_path']}";
+		}
+
+	}
+
+	$imagePath = getImagePath();
+	
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +57,7 @@ session_start();
             </div>
 
             <div class="header__img">
-                <img src="img/varatia_profile_pic.png" alt="">
+                <img src="<?php echo $imagePath ?>" alt="">
             </div>
         </header>
 
@@ -85,7 +117,7 @@ session_start();
                             <div class="row m-l-0 m-r-0">
                                 <div class="col-sm-4 bg-c-lite-green user-profile">
                                     <div class="card-block text-center text-white">
-                                        <div class="m-b-25"> <img src="img/varatia_profile_pic.png" class="img-radius" alt="User-Profile-Image"> </div>
+                                        <div class="m-b-25"> <img src="<?php echo $imagePath ?>" class="img-radius" alt="User-Profile-Image"> </div>
                                         <h6 class="f-w-600"><?php showName() ?></h6>
                                         <p>Varatia</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                     </div>
@@ -113,16 +145,20 @@ session_start();
                                                 <h6 class="text-muted f-w-400">1212121212</h6>
                                             </div> -->
                                         </div>
-                                        <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Apartment Info</h6>
+                                        <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Update Profile</h6>
                                         <div class="row">
-                                            <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Flat ID</p>
-                                                <h6 class="text-muted f-w-400">23A22</h6>
-                                            </div>
-                                            <div class="col-sm-6">
-                                            <p class="m-b-10 f-w-600">Flat Details</p>
-                                                <a href="varatia_my_home.php">My Flat Details</a>
-                                            </div>
+                                            <form action="varatia_profile.php" class="m-2 p-3 border border-warning" method="POST" enctype="multipart/form-data">
+
+                                                <div class="mb-3">
+
+                                                    <label class="form-label label-style" for="customFile">Upload Your Profile Picture</label> <br>
+                                                    <input type="file" accept="image/*" name="varatia_profile_pic" class="form-control" id="customFile" required> <br>
+                                                    
+                                                </div>
+
+                                                <button class="btn btn-info" name="varatia_update_profile" value="v_up_profile">Submit</button>
+
+                                            </form> 
                                         </div>
                                         <ul class="social-link list-unstyled m-t-40 m-b-10">
                                             <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
