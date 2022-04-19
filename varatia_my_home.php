@@ -44,41 +44,45 @@
     while($row2 = mysqli_fetch_assoc($varatia_nid_query)){
         $varatia_nid = $row2['nid'];
     }
- 
+
+    global $varatia_request_approved, $flat_id;
         
     $varatia_request = "select * from varatia_request_flat where varatia_nid='$varatia_nid'";
     $varatia_request_query = mysqli_query($con, $varatia_request);
 
     while($row3 = mysqli_fetch_assoc($varatia_request_query)){
-        global $varatia_request_approved, $flat_id;
+        
         $varatia_request_approved = $row3['approved'];
         $flat_id = $row3['flat_id'];
     }
 
-    if($varatia_request_approved == 'Yes'){
-        echo "";
-    }
+    // if($varatia_request_approved == 'Yes'){
+    //     echo "";
+    // }
 
-    else{
-        // echo "Your request for Flat ID: $flat_id is pending";
-    }
+    // else{
+    //     // echo "Your request for Flat ID: $flat_id is pending";
+    // }
     
-    $flat_sql = "SELECT * FROM flats WHERE id = $flat_id";
+    $flat_sql = "SELECT * FROM flats WHERE id = '$flat_id'";
     $flat_sql_query = mysqli_query($con, $flat_sql);
 
-    while($row = mysqli_fetch_assoc($flat_sql_query)){
-        global $city, $size, $location, $beds, $baths, $address, $floor, $building, $advance_payment, $additional_facilities;
-        $city = $row['city'];
-        $size = $row['size'];
-        $location = $row['location'];
-        $block = $row['block'];
-        $beds = $row['bedroom'];
-        $baths = $row['bathroom'];
-        $address = $row['address'];
-        $floor = $row['floor'];
-        $building = $row['building_no'];
-        $advance_payment = $row['advance_payment'];
-        $additional_facilities = $row['additional_facilities'];
+
+    global $city, $size, $location, $beds, $baths, $address, $floor, $building, $advance_payment, $additional_facilities;
+    while($row5 = mysqli_fetch_assoc($flat_sql_query)){
+        $price = $row5['price'];
+        $city = $row5['city'];
+        $size = $row5['size'];
+        $location = $row5['location'];
+        $block = $row5['block'];
+        $beds = $row5['bedroom'];
+        $baths = $row5['bathroom'];
+        $address = $row5['address'];
+        $floor = $row5['floor'];
+        $building = $row5['building_no'];
+        $advance_payment = $row5['advance_payment'];
+        $additional_facilities = $row5['additional_facilities'];
+        $img_path = $row5['img_path'];
     }
 
 ?>
@@ -163,7 +167,7 @@
         
             <h1 class="text-center">Flat Details</h1>  
 
-            <img class="center" src="img/home.jpg" alt="" width="500px" height="350px">
+            <img class="center" src="<?php echo $img_path; ?>" alt="" width="500px" height="350px">
 
             <div class="container mt-3">
                 <h2 class="text-center"> <b> Here are the details of the flat </b> </h2>
@@ -171,7 +175,7 @@
                     <thead>
                     <tr>
                         <th>Price</th>
-                        <th>24000/- BDT</th>
+                        <th><?php echo $price; ?> BDT</th>
                     </tr>
                     </thead>
                     <tbody>
