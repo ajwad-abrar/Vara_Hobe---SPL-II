@@ -232,7 +232,7 @@
             <h1 class="text-center" id="pending">Your request is pending </h1>  <br>
             <h2 class="text-center">Details of the flat you requested</h2>   
 
-            <img class="center" src="img/home.jpg" alt="" width="500px" height="350px">
+            <img class="center" src="<?php echo $img_path; ?>" alt="" width="500px" height="350px">
 
             <div class="container mt-3">
                 <!-- <h2 class="text-center">Here are the details of the flat</h2> -->
@@ -240,7 +240,7 @@
                     <thead>
                     <tr>
                         <th>Price</th>
-                        <th>24000/- BDT</th>
+                        <th><?php echo $price; ?> BDT</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -291,6 +291,17 @@
         <?php endif; ?>
 
 
+
+        <?php if(($varatia_request_approved  != 'Yes' and $varatia_request_approved  != 'No')): ?>
+            <br><br><br><br><br><br><br><br><br>
+            <div class="alert alert-success text-center" role="alert">
+            <h4 class="alert-heading "><b>Be active!</b></h4>
+            <p>You haven't requested for any flats yet.  Try requesting for any available flat & get to live in the best homes at an affordable price.</p>
+            <hr>
+            <p class="mb-0">The more you late, the more you miss the opportunity. So hurry up!</p>
+            </div>
+
+        <?php endif; ?>
 
         
 

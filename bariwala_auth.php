@@ -229,7 +229,7 @@ if(isset($_POST['login'])){
               Sign up
             </button>
           </div>
-         <a href="index.html" target="_blank"> <img src="img/log.svg" class="image" title="Click here to go back to home page" alt="" /> </a> 
+         <a href="index.php" target="_blank"> <img src="img/log.svg" class="image" title="Click here to go back to home page" alt="" /> </a> 
         </div>
         <div class="panel right-panel">
           <div class="content">

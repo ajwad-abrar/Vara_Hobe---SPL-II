@@ -156,7 +156,7 @@ mysqli_free_result($result);
                         ?> -->
 
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="<?php echo htmlspecialchars($request['img_path']); ?>" alt="Card image cap">
+                    <img class="card-img-top" src="<?php echo htmlspecialchars($request['img_path']); ?>" alt="Card image cap" height="200px">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($request['location']); ?> ,<?php echo htmlspecialchars($request['block']); ?> flat</h5>
                         <p class="card-text"> <b> BDT <?php echo htmlspecialchars($request['price']); ?> / MONTH </b> </p>

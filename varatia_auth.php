@@ -280,7 +280,7 @@ if(isset($_POST['login'])){
 
             <div class="input-field">
               <i class="fas fa-id-card"></i>
-              <input type="number" step="1" minlength="10" maxlength="10" placeholder="NID number" name="nid" required />
+              <input type="number" minlength="10" maxlength="10" placeholder="NID number" name="nid" required />
             </div>
 
             <div class="input-field">

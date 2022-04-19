@@ -75,7 +75,7 @@ if(isset($_POST['request_flat'])){
     $flat_request_query= mysqli_query($con,$sql2);
 
    if($flat_request_query){
-       echo "success";
+    //    echo "success";
    }
 
    else{
@@ -100,8 +100,8 @@ if(isset($_POST['request_flat'])){
 
 
         if($insert_request){
-            echo $varatia_nid;
-            echo "request inserted";
+            // echo $varatia_nid;
+            // echo "request inserted";
         }
 
         else{

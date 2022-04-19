@@ -54,6 +54,9 @@ if (!$con) {
 $email = $_SESSION['email'];
 $reg = " select nid from bariwala where email= '$email'";
 $result1 = mysqli_query($con, $reg);
+
+global $bariwala_nid, $accept_flag, $reject_flag;
+
 while($row = mysqli_fetch_assoc($result1)){
     $bariwala_nid = $row['nid'];
 }
@@ -70,14 +73,14 @@ while($row = mysqli_fetch_assoc($result1)){
 
  if(isset($_POST['accept'])){
 
-    $accepted_request_id= $_POST['accept'];
-   
-  
+   $accepted_request_id= $_POST['accept'];
+
    $sql3 = "UPDATE varatia_request_flat  SET approved='Yes' WHERE request_id='$accepted_request_id'";
    $accept_query= mysqli_query($con,$sql3);
 
    if($accept_query){
-       echo "Success";
+       //echo "Success";
+       $accept_flag = 1;
    }
    else{
        echo "error";
@@ -90,14 +93,12 @@ while($row = mysqli_fetch_assoc($result1)){
    while($row4=mysqli_fetch_assoc($get_flat_id)){
     $flat_id = $row4['flat_id'];
   }
-
-   
+  
    $sql5= "UPDATE flats SET flat_status='Filled' WHERE id='$flat_id'";
    $flat_query= mysqli_query($con, $sql5);
 
 
 }
-
 
 
 
@@ -110,18 +111,15 @@ if(isset($_POST['reject'])){
    $reject_query= mysqli_query($con,$sql6);
 
    if($reject_query){
-       echo "Success";
+       //echo "Success";
+       $reject_flag = 1;
    }
    else{
        echo "error";
-   }
-
-
-   
+   } 
 
 
 }
-
 
 
 
@@ -203,6 +201,7 @@ if(isset($_POST['reject'])){
 
 
 
+    <h1 class="text-center">The requests for your flats are: </h1>
 
 
     <div class="row">
@@ -212,15 +211,15 @@ if(isset($_POST['reject'])){
 
             <div class="col">
 
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 22rem;">
                    
                     <div class="card-body">
-                        <h5 class="card-title">Request Time:<?php echo htmlspecialchars($request['request_time']); ?></h5>
+                        <h5 class="card-title text-center"> <b> Varatia Request </b> </h5>
                     </div>
                     <ul class="list-group list-group-flush">
-                    <li class="list-group-item"> <b> Varatia Info </b> </li>
-                        <li class="list-group-item"> <?php echo htmlspecialchars($request['varatia_nid']); ?>  is requesting for  flat <?php echo htmlspecialchars($request['flat_id']); ?> </li>
-                        
+                        <li class="list-group-item"> Request for flat: <?php echo htmlspecialchars($request['flat_id']); ?></li>
+                        <li class="list-group-item"> Request from varatia having NID: <?php echo htmlspecialchars($request['varatia_nid']); ?></li>
+                        <li class="list-group-item"> Request Time: <?php echo htmlspecialchars($request['request_time']); ?> </li>
                     </ul>
 
                   <form action="bariwala_flat_request.php" method="post">
@@ -243,6 +242,35 @@ if(isset($_POST['reject'])){
 
             
     </div>
+
+
+    <?php if($accept_flag == 1): ?>
+
+        <div class="alert alert-success d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            <div>
+                You have successfully accepted the request
+            </div>
+        </div>
+
+        <?php $accept_flag = 0; ?>
+    
+    <?php endif; ?> 
+    
+    
+    <?php if($reject_flag == 1): ?>
+
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <div>
+            You have successfully rejected the request
+            </div>
+        </div>
+
+        <?php $reject_flag = 0; ?>
+    
+    <?php endif; ?>   
+
 
 
 
