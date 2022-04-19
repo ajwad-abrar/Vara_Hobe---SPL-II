@@ -45,9 +45,9 @@
 
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="css/admin_style.css">
-        <link rel="stylesheet" href="css/admin_home_style.css">
+        <link rel="stylesheet" href="css/admin_overall_info.css">
 
-        <title>Admin Home</title>
+        <title>Admin Overall Information</title>
     </head>
     <body id="body-pd">
         <header class="header" id="header">
@@ -63,13 +63,13 @@
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
                 <div>
-                    <a href="#" class="nav__logo">
+                <a href="#" class="nav__logo">
                         <i class='bx bx-layer nav__logo-icon'></i>
                         <span class="nav__logo-name">Vara Hobe</span>
                     </a>
 
                     <div class="nav__list">
-                        <a href="admin_home.php" class="nav__link active">
+                        <a href="admin_home.php" class="nav__link">
                         <i class='bx bxs-home nav__icon' ></i>
                             <span class="nav__name">Home</span>
                         </a>
@@ -84,7 +84,7 @@
                             <span class="nav__name">Activity Log</span>
                         </a>
 
-                        <a href="admin_overall_info.php" class="nav__link">
+                        <a href="admin_overall_info.php" class="nav__link active">
                             <i class='bx bxs-receipt nav__icon' ></i>
                             <span class="nav__name">Overall Info</span>
                         </a>
@@ -99,50 +99,123 @@
             </nav>
         </div>
 
-    
-        
-
-    <?php
-
-        function showName(){
-
-            $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
-
-
-            $email = $_SESSION['email'];
-
-            $reg= "select name from admin where email= '$email'";
-
-
-            $result = mysqli_query($con, $reg);
-
-            // echo "<br>";
-
-            while($row = mysqli_fetch_assoc($result)){
-                echo "{$row['name']}";
-            }
-        }
-    ?>    
 
 
 
-    <div id="welcome">  
-        <h1 class="welcome_font"> 
+
+        <h1 class="text-center headline">Overall statistics of the website</h1> 
+
+        <div class="varatia">
+            <h1>Total Varatia: <?php showVaratiaCount() ?></h1>
+            <h1>Total Varatia who are assigned to a flat: <?php showAssignedVaratia() ?></h1>
+        </div>
+        <div class="bariwala">
+            <h1>Total Bariwala: <?php showBariwalaCount() ?></h1>
+            <h1>Total flats: <?php showFlatCount() ?></h1>
+            <h1>Total flats available: <?php showAvailableFlatCount() ?> </h1>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
         <?php
 
-            echo "Welcome Back, ";
+            function showVaratiaCount(){
 
-            showName();
-
-            echo "<br><br><br>Happy " . date("l");
-
-            ?>  
-	    </h1>
-    </div>
+                $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
 
 
-    
-        
+                $email = $_SESSION['email'];
+
+                $reg=" select count(nid) count from varatia";
+
+
+                $result = mysqli_query($con, $reg);
+
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "{$row['count']}";
+                }
+            }
+
+            function showBariwalaCount(){
+
+                $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+                $email = $_SESSION['email'];
+
+                $reg=" select count(nid) count from bariwala";
+
+
+                $result = mysqli_query($con, $reg);
+
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "{$row['count']}";
+                }
+            }
+
+            function showFlatCount(){
+
+                $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+                $email = $_SESSION['email'];
+
+                $reg=" select count(id) count from flats";
+
+
+                $result = mysqli_query($con, $reg);
+
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "{$row['count']}";
+                }
+            }
+
+
+            function showAvailableFlatCount(){
+
+                $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+                $reg=" select count(id) count from flats WHERE flat_status != 'filled'";
+
+
+                $result = mysqli_query($con, $reg);
+
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "{$row['count']}";
+                }
+            }
+
+
+            function showAssignedVaratia(){
+
+                $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+                $reg=" select count(id) count from flats WHERE flat_status = 'filled'";
+
+
+                $result = mysqli_query($con, $reg);
+
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "{$row['count']}";
+                }
+            }
+
+
+        ?>
+       
+
+
+
         
         <!--=====  JS =====-->
         <script src="js/admin_js.js"></script>

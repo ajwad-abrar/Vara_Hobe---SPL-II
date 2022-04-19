@@ -4,8 +4,16 @@ session_start();
 $con =mysqli_connect('localhost', 'root','190042106');
 
 mysqli_select_db($con, 'vara_hobe');
-$email=$_SESSION['email'];
+$email = $_SESSION['email'];
+$reg = " select nid from bariwala where email= '$email'";
+$result = mysqli_query($con, $reg);
 
+
+while($row = mysqli_fetch_assoc($result)){
+    $bariwala_nid = $row['nid'];
+}
+
+//echo $result;
 
 if(isset($_POST['submit'])){
 
@@ -42,8 +50,8 @@ if(isset($_POST['submit'])){
         //   $sql="INSERT INTO `flats` (`id`, `city`, `location`, `block`, `address`, `building_no`, `floor`, `apartment_no`,`bedroom`,`bathroom`,`price`,`size`,`advance_payment`,`parking`,`gas`,`generator`,`lift`,`cctv`,`fire_protection`)
         //   VALUES (NULL, '$city','$location', '$block', '$address', '$building_no', '$floor', '$apartment_no','$bed','$bath','$price','$size','$advance_payment','yes','yes','yes','yes','yes','yes');";
   
-        $sql="INSERT INTO `flats` (`id`, `city`, `location`, `block`, `address`, `building_no`, `floor`, `apartment_no`,`bedroom`,`bathroom`,`price`,`size`,`advance_payment`,`additional_facilities`)
-        VALUES (NULL, '$city','$location', '$block', '$address', '$building_no', '$floor', '$apartment_no','$bed','$bath','$price','$size','$advance_payment','$chk');";
+        $sql="INSERT INTO `flats` (`id`, `bariwala_nid`, `city`, `location`, `block`, `address`, `building_no`, `floor`, `apartment_no`,`bedroom`,`bathroom`,`price`,`size`,`advance_payment`,`additional_facilities`)
+        VALUES (NULL, '$bariwala_nid', '$city',  '$location', '$block', '$address', '$building_no', '$floor', '$apartment_no','$bed','$bath','$price','$size','$advance_payment','$chk');";
 
 
   
@@ -114,6 +122,11 @@ if(isset($_POST['submit'])){
                         <a href="bariwala_flat_info.php" class="nav__link">
                             <i class='bx bxs-home-heart nav__icon' ></i>
                             <span class="nav__name">My Flat</span>
+                        </a>
+
+                        <a href="bariwala_flat_request.php" class="nav__link">
+                            <i class='bx bxs-send nav__icon' ></i>
+                            <span class="nav__name">Request</span>
                         </a>
 
 

@@ -17,8 +17,7 @@ while($row = mysqli_fetch_assoc($result1)){
     $bariwala_nid = $row['nid'];
 }
 
-$sql = "SELECT *
-FROM `flats` where bariwala_nid = $bariwala_nid";
+$sql = "SELECT * FROM `varatia_request_flat` where flat_id = 12";
 
 $result = mysqli_query($con, $sql);
 
@@ -81,12 +80,12 @@ mysqli_free_result($result);
                         <span class="nav__name">Add Flat</span>
                     </a>
 
-                    <a href="bariwala_flat_info.php" class="nav__link active">
+                    <a href="bariwala_flat_info.php" class="nav__link">
                         <i class='bx bxs-home-heart nav__icon'></i>
                         <span class="nav__name">My Flat</span>
                     </a>
 
-                    <a href="bariwala_flat_request.php" class="nav__link">
+                    <a href="bariwala_flat_request.php" class="nav__link active">
                             <i class='bx bxs-send nav__icon' ></i>
                             <span class="nav__name">Request</span>
                     </a>
@@ -113,64 +112,26 @@ mysqli_free_result($result);
 
             <div class="col">
 
-                <!-- <?php $a_id = $_SESSION['id'];
-                        echo '$a_id';
-
-                        ?> -->
-
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="img/home.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="img/demo.jpg" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo htmlspecialchars($request['location']); ?> ,<?php echo htmlspecialchars($request['block']); ?> flat</h5>
-                        <p class="card-text"> BDT <?php echo htmlspecialchars($request['price']); ?> / MONTH </p>
+                        <h5 class="card-title"><?php echo htmlspecialchars($request['request_id']); ?> ,<?php echo htmlspecialchars($request['request_time']); ?> Varatia Info: </h5>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><?php echo htmlspecialchars($request['size']); ?> SQFT</li>
-                        <li class="list-group-item"><?php echo htmlspecialchars($request['bedroom']); ?> ROOM</li>
-                        <li class="list-group-item"><?php echo htmlspecialchars($request['bathroom']); ?> BATHROOM</li>
-                    </ul>
+                    <!-- <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><?php echo htmlspecialchars($request['size']); ?> Varatia ID: </li>
+                        <li class="list-group-item"><?php echo htmlspecialchars($request['bedroom']); ?>Varatia Name: </li>
+                        <li class="list-group-item"><?php echo htmlspecialchars($request['bathroom']); ?> Request Time: </li>
+                    </ul> -->
                     <div class="card-body">
-                        <a href="bariwala_flat_details.php" class="card-link">Flat Details</a>
+                        <button type="button" class="btn btn-success">Accept</button>
+                        <button type="button" class="btn btn-danger">Reject</button>
                     </div>
                 </div>
             </div>
 
         <?php endforeach; ?>
 
-        <!-- <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="img/home.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Banani flat</h5>
-                        <p class="card-text"> BDT 180000 / MONTH </p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">2700 SQFT</li>
-                        <li class="list-group-item">3 ROOM</li>
-                        <li class="list-group-item">4 BATHROOM</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="bariwala_flat_details.php" class="card-link">Flat Details</a>
-                    </div>
-                </div>
-            </div> -->
-        <!-- <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="img/home.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Gulshan-2 flat</h5>
-                        <p class="card-text"> BDT 180000 / MONTH </p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">2700 SQFT</li>
-                        <li class="list-group-item">3 ROOM</li>
-                        <li class="list-group-item">4 BATHROOM</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="bariwala_flat_details.php" class="card-link">Flat Details</a>
-                    </div>
-                </div>
-            </div> -->
+            
     </div>
 
 

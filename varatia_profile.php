@@ -63,17 +63,6 @@ session_start();
                             <i class='bx bxs-message-rounded-dots nav__icon' ></i>
                             <span class="nav__name">Chat</span>
                         </a>
-
-                        <!-- <a href="varatia_review.php" class="nav__link">
-                            <i class='bx bxs-star-half nav__icon' ></i>
-                            <span class="nav__name">Review</span>
-                        </a> -->
-<!-- 
-                        <a href="#" class="nav__link">
-                            <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
-                            <span class="nav__name">Analytics</span>
-                        </a> -->
-
                         
 
                     </div>
@@ -97,7 +86,7 @@ session_start();
                                 <div class="col-sm-4 bg-c-lite-green user-profile">
                                     <div class="card-block text-center text-white">
                                         <div class="m-b-25"> <img src="img/varatia_profile_pic.png" class="img-radius" alt="User-Profile-Image"> </div>
-                                        <h6 class="f-w-600">Ajwad Abrar</h6>
+                                        <h6 class="f-w-600"><?php showName() ?></h6>
                                         <p>Varatia</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                     </div>
                                 </div>
@@ -107,22 +96,22 @@ session_start();
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Email</p>
-                                                <h6 class="text-muted f-w-400">ajwadabrar27@gmail.com</h6>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Phone</p>
-                                                <h6 class="text-muted f-w-400">01984567679</h6>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Gender</p>
-                                                <h6 class="text-muted f-w-400">Male</h6>
+                                                <h6 class="text-muted f-w-400"><?php showEmail() ?></h6>
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">NID</p>
-                                                <h6 class="text-muted f-w-400">1212121212</h6>
+                                                <h6 class="text-muted f-w-400"><?php showNID() ?></h6>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <!-- <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Gender</p>
+                                                <h6 class="text-muted f-w-400">Male</h6>
+                                            </div> -->
+                                            <!-- <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">NID</p>
+                                                <h6 class="text-muted f-w-400">1212121212</h6>
+                                            </div> -->
                                         </div>
                                         <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Apartment Info</h6>
                                         <div class="row">
@@ -148,6 +137,97 @@ session_start();
                 </div>
             </div>
         </div>
+
+
+
+
+
+    <?php
+
+        function showName(){
+
+            $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+            $email = $_SESSION['email'];
+
+            $reg=" select name from varatia where email= '$email'";
+
+
+            $result = mysqli_query($con, $reg);
+
+            echo "<br>";
+
+            while($row = mysqli_fetch_assoc($result)){
+                echo "{$row['name']}";
+            }
+        }
+
+        function showEmail(){
+
+            $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+            $email = $_SESSION['email'];
+
+            $reg=" select email from varatia where email= '$email'";
+
+            $result = mysqli_query($con, $reg);
+
+            while($row = mysqli_fetch_assoc($result)){
+                echo "{$row['email']}";
+            }
+        }
+
+        function showNID(){
+
+            $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+            $email = $_SESSION['email'];
+
+            $reg=" select nid from varatia where email= '$email'";
+
+            $result = mysqli_query($con, $reg);
+
+            while($row = mysqli_fetch_assoc($result)){
+                echo "{$row['nid']}";
+            }
+        }
+
+
+        function showGender(){
+
+            $con =mysqli_connect('localhost', 'root','190042106', 'vara_hobe');
+
+
+            $email = $_SESSION['email'];
+
+            $reg=" select gender from varatia where email= '$email'";
+
+            $result = mysqli_query($con, $reg);
+
+            while($row = mysqli_fetch_assoc($result)){
+                echo "{$row['gender']}";
+            }
+        }
+
+    ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         <!--=====  JS =====-->

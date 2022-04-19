@@ -61,7 +61,7 @@ session_start();
 
                         <a href="varatia_my_home.php" class="nav__link active">
                             <i class='bx bxs-message-rounded-dots nav__icon' ></i>
-                            <span class="nav__name">My Home</span>
+                            <span class="nav__name">Chat</span>
                         </a>
 
                         <!-- <a href="varatia_review.php" class="nav__link">
